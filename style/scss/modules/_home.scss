@@ -1,18 +1,18 @@
-body{
-    margin:0;
-    padding:0;
+body {
+    margin: 0;
+    padding: 0;
 }
 #leader {
-    min-height: 95vh;
+    min-height: 100vh;
     background-size: cover;
     background-image: url('../../image/dogChair.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     color: white;
-    @extend .navbar-stick;
-    margin-top: -16vh;
+    margin-top: -70px;
     .container {
-        margin-top: 20vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
     }
     h1, p {
         font-weight: normal;
@@ -20,6 +20,9 @@ body{
     }
     #description {
         background: rgba(#000, 0.5);
+    }
+    #signUp {
+        background-color: rgba(#48CFAD, 0.8);
     }
     .button-group {
         margin-top: 5vh;
@@ -29,24 +32,19 @@ body{
     }
 }
 #pttrInfo {
-padding:0;
-margin:0;
+    padding: 0;
+    margin: 0;
     display: flex;
-
     .onHoverInfo1 {
         @extend %infoBlock;
-        background-image: url('../../image/infoBlock1.jpg');
     }
     .onHoverInfo2 {
         @extend %infoBlock;
-        background-image: url('../../image/infoBlock2.jpg');
     }
     .onHoverInfo3 {
         @extend %infoBlock;
-        background-image: url('../../image/infoBlock3.jpg');
     }
     .onHoverInfo4 {
         @extend %infoBlock;
-        background-image: url('../../image/infoBlock4.jpg');
     }
 }
