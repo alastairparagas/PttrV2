@@ -1,0 +1,19 @@
+%header{
+	position: fixed;
+	width: 100%;
+	background: red;
+	h1{
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
+#userdash{
+	header{
+		@extend %header;
+	}	
+}
+#shelterdash{
+	header{
+		@extend %header;
+	}	
+}

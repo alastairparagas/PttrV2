@@ -1,8 +1,9 @@
-<div class="container-fluid" id="leader">
-    <div class="container">
+<!-- <div class="container-fluid" id="leader"> -->
+
+<!-- <div class="container">
         <div class="col-md-8">
             <h2 class="animated fadeInUp">A second chance</h2>
-            <p class="animated fadeInUp">Pttr connects everyday individuals like you to animal shelters in your local area, 
+            <p class="animated fadeInUp">Pttr connects everyday individuals like you to animal shelters in your local area,     
                 who need your support - shelters that often lack the resources to help the troubling number of stray animals
                 out in the streets. <br><br>
                 Pttr also empowers shelters to easily manage and track both stray animals currently in
@@ -13,5 +14,39 @@
                 <a class="animated fadeInUp btn btn-success">Sign Up</a>
             </div>
         </div>
+    </div> -->
+<div id="userdash">
+        <header>
+            <h1>DashBoard</h1>
+        </header>
+    <div class="container-fluid" ng-class="{'show-menu': showmenu }">        
+        <div class="menu-wrap">
+            <nav class="menu">
+                <div class="profile"><img src="img/related/sidebartransitions.png" alt="Matthew Greenberg" /><span>Matthew Greenberg</span>
+                </div>
+                <div class="link-list">
+                    <a href="#"><span>Latest stories</span></a>
+                    <a href="#"><span>Your friends</span></a>
+                    <a href="#"><span>Personal Settings</span></a>
+                    <a href="#"><span>Security &amp; Privacy</span></a>
+                </div>
+                <div class="icon-list">
+                    <a href="#"><i class="fa fa-fw fa-home"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-question-circle"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-power-off"></i></a>
+                </div>
+            </nav>
+        </div>
+        <button ng-click="activate()" class="menu-button" id="open-button"><i class="fa fa-fw fa-cog"></i><span>Open Menu</span>
+        </button>
+        <div class="row">
+            <div class="col-sm-8">
+                
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+       
     </div>
 </div>
+<!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script> -->
