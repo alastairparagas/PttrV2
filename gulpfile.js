@@ -2,16 +2,15 @@
     'use strict';
     
     var gulp = require('gulp'),
-        sass = require('gulp-sass'),
+        sass = require('gulp-ruby-sass'),
         plumber = require('gulp-plumber');
     
     // SASS Task
     gulp.task('sass', function () {
-        return gulp.src('style/scss/**/*.scss')
-                    .pipe(sass({
-                        outputStyle: "compressed",
-                        errLogToConsole: true
-                    }))
+        return sass('style/scss', {
+                        style: 'compressed',
+                        sourcemap: false
+                    })
                     .pipe(gulp.dest('style/css'));
     });
     
