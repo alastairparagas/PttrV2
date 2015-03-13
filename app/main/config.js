@@ -30,7 +30,8 @@
             
             .state('app.user', {
                 url: '/user',
-                abstract: true
+                abstract: true,
+                template: '<ui-view/>'
             })
             .state('app.user.login', {
                 url: '/login',
@@ -58,7 +59,8 @@
         
             .state('app.shelter', {
                 url: '/shelter',
-                abstract: true
+                abstract: true,
+                template: '<ui-view/>'
             })
             .state('app.shelter.login', {
                 url: '/login',
@@ -86,7 +88,8 @@
         
             .state('app.animal', {
                 url: '/animal',
-                abstract: true
+                abstract: true,
+                template: '<ui-view/>'
             })
             .state('app.animal.view', {
                 url: '/:id',
