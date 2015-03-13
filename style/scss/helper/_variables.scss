@@ -1,13 +1,45 @@
 @import '../../bower_components/Bootflat/bootflat/scss/bootflat/global.scss';
 $navbar-background-color: rgba($aqua-dark, 0.8);
 $navbar-background-color-active: rgba($aqua-light, 0.8);
-%infoBlock{
-	margin-left:0;
-	margin-right:0;
-	padding:0px;
-	flex:1;
-	justify-content: center;
-	img{
-	padding:0px;
-	}
+%infoBlock {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0px;
+    flex: 1;
+    justify-content: center;
+    img {
+        padding: 0px;
+    }
+}
+%button {
+    background-color: rgba(#48CFAD, 0.8);
+    border-color: rgba(#48CFAD, 0.8);
+    color: white;
+    margin-top: 2%;
+    margin-bottom: 30%;
+    &:hover {
+        background-color: rgba(#48CFAD, 0.8);
+        border-color: rgba(#48CFAD, 0.8);
+        color: #434A54;
+    }
+}
+%input {
+    margin-bottom: 2%;
+    border: 1px solid #E4E9F7;
+    &:hover {
+        border: 1px solid rgba(#48CFAD, 0.8);
+    }
+}
+%informBlocks {
+    .txt_blk {
+        p, li {
+            list-style: none;
+            text-align: justify;
+            color: rgba(#48CFAD, 0.8);
+            margin-bottom: 10px;
+        }
+        h5 {
+            text-align: center;
+        }
+    }
 }

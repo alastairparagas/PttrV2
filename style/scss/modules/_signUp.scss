@@ -1,0 +1,70 @@
+#createShelter {
+    .profileSettings {
+        h1 {
+            text-align: center;
+        }
+        .txt_blk {
+            p, li {
+                padding-left: 7%;
+                padding-right: 7%;
+                list-style: none;
+                text-align: justify;
+                color: rgba(#48CFAD, 0.8);
+                margin-bottom: 10px;
+            }
+            h5 {
+                text-align: center;
+            }
+        }
+        .btn {
+            @extend %button;
+            &:nth-child(0) {
+                margin-left: 2%;
+            }
+            &:nth-child(1) {
+                margin-right: 2%;
+            }
+        }
+        input, textarea {
+            @extend %input;
+        }
+        img {
+            margin-bottom: 50px;
+        }
+    }
+}
+#createUser {
+    .profileSettings {
+        h1 {
+            text-align: center;
+        }
+        .txt_blk {
+            p, li {
+                padding-left: 7%;
+                padding-right: 7%;
+                list-style: none;
+                text-align: justify;
+                color: rgba(#48CFAD, 0.8);
+                margin-bottom: 10px;
+            }
+            h5 {
+                text-align: center;
+            }
+        }
+        .btn {
+            @extend %button;
+            &:nth-child(0) {
+                margin-left: 2%;
+            }
+            &:nth-child(1) {
+                margin-right: 2%;
+            }
+        }
+        input, textarea {
+            @extend %input;
+        }
+        img {
+            margin-bottom: 50px;
+        }
+    }
+}

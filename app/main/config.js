@@ -1,24 +1,24 @@
 (function (window) {
     'use strict';
-    
+
     var angular = window.angular,
         app = angular.module('pttr', ['ui.router', 'ui.bootstrap', 'firebase', 'pttr.firebase', 'pttr.auth', 'pttr.animal', 'pttr.user', 'pttr.shelter']);
-    
+
     app.run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
-        
+
     }]);
-    
+
     app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-        
+
         $stateProvider
-        
+
             .state('app', {
                 url: '/app',
                 abstract: true,
                 controller: 'AppCtrl',
                 templateUrl: 'app/main/partials/app.html'
             })
-        
+
             .state('app.home', {
                 url: '/home',
                 templateUrl: 'app/main/partials/home.html'
@@ -27,7 +27,7 @@
                 url: '/contact',
                 templateUrl: 'app/main/partials/contact.html'
             })
-            
+
             .state('app.user', {
                 url: '/user',
                 abstract: true,
@@ -56,7 +56,7 @@
                     authType: 'user'
                 }
             })
-        
+
             .state('app.shelter', {
                 url: '/shelter',
                 abstract: true,
@@ -85,7 +85,7 @@
                     authType: 'shelter'
                 }
             })
-        
+
             .state('app.animal', {
                 url: '/animal',
                 abstract: true,
@@ -104,7 +104,7 @@
                     authType: 'shelter'
                 }
             })
-        
+
             .state('app.user.dashboard', {
                 url: '/dashboard',
                 controller: 'UserDashboardCtrl',
@@ -121,9 +121,9 @@
                     authtype: 'shelter'
                 }
             });
-        
+
         $urlRouterProvider.otherwise('/app/home');
-        
+
     }]);
-    
+
 }(window));
