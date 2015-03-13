@@ -1,6 +1,5 @@
-@import 'variables';
+@import 'bower_components/Bootflat/bootflat/scss/bootflat/global.scss';
 @import 'bower_components/Bootflat/bootflat/scss/bootflat.scss';
-
-@import 'navbar';
-@import 'typography';
-@import 'home';
+@import 'helper/all';
+@import 'base/all';
+@import 'modules/all';
