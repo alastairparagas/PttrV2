@@ -43,6 +43,14 @@
                 controller: 'UserRegisterCtrl',
                 templateUrl: 'app/auth/partials/userRegister.html'
             })
+            .state('app.user.dashboard', {
+                url: '/dashboard',
+                controller: 'UserDashboardCtrl',
+                templateUrl: 'app/user/partials/dashboard.html',
+                data: {
+                    authType: 'user'
+                }
+            })
             .state('app.user.view', {
                 url: '/:id',
                 controller: 'UserViewCtrl',
@@ -72,6 +80,14 @@
                 controller: 'ShelterRegisterCtrl',
                 templateUrl: 'app/auth/partials/shelterRegister.html'
             })
+            .state('app.shelter.dashboard', {
+                url: '/dashboard',
+                controller: 'ShelterDashboardCtrl',
+                templateUrl: 'app/shelter/partials/dashboard.html',
+                data: {
+                    authtype: 'shelter'
+                }
+            })
             .state('app.shelter.view', {
                 url: '/:id',
                 controller: 'ShelterViewCtrl',
@@ -84,8 +100,7 @@
                 data: {
                     authType: 'shelter'
                 }
-            })
-        
+            })        
             .state('app.animal', {
                 url: '/animal',
                 abstract: true,
@@ -103,25 +118,8 @@
                 data: {
                     authType: 'shelter'
                 }
-            })
-        
-            .state('app.user.dashboard', {
-                url: '/dashboard',
-                controller: 'UserDashboardCtrl',
-                templateUrl: 'app/user/partials/dashboard.html',
-                data: {
-                    authType: 'user'
-                }
-            })
-            .state('app.shelter.dashboard', {
-                url: '/dashboard',
-                controller: 'ShelterDashboardCtrl',
-                templateUrl: 'app/shelter/partials/dashboard.html',
-                data: {
-                    authtype: 'shelter'
-                }
             });
-        
+
         $urlRouterProvider.otherwise('/app/home');
         
     }]);
