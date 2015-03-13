@@ -6,25 +6,25 @@
     background-repeat: no-repeat;
     color: white;
     @extend .navbar-stick;
-    
+    margin-top:-16vh;
     .container {
-        margin-top: 10vh;
+        margin-top: 20vh;
     }
-    
+
     h1, p {
         font-weight: normal;
         text-shadow: 0px 2px 5px #111;
     }
-    
+
     #description {
         background: rgba(#000, 0.5);
     }
-    
+
     .button-group {
-        margin-top: 5vh;   
+        margin-top: 5vh;
     }
-    
+
     p {
-        margin-top: 5vh;   
+        margin-top: 5vh;
     }
 }
