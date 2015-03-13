@@ -1,8 +1,11 @@
 (function(window){
 	'use strict';
 	var angular = window.angular;
-	angular.module('UserCtrl',[])
+	angular.module('UserDashboardCtrl',[])
 	.controller('FirstCtrl',[function($scope){
-		$scope.test = "test works";
+		$scope.showmenu = false;
+        $scope.activate = function(){
+        	$scope.showmenu = !$scope.showmenu;
+        }
 	}])
 }(window));

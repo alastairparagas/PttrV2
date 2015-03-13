@@ -3,6 +3,6 @@
     
     var angular = window.angular;
     
-    angular.module('pttr.user', ['UserCtrl']);
+    angular.module('pttr.user', ['UserDashboardCtrl']);
     
 }(window));
