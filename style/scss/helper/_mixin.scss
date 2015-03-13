@@ -1,0 +1,16 @@
+@mixin sameWH($same){
+	width: $same;
+	height: $same;
+}
+@mixin transition($type,$x){
+	-webkit-transition: $type $x;
+	transition: $type $x;
+}
+@mixin transform($x,$y,$z){
+	-webkit-transform: translate3d($x,$y,$z);
+	transform: translate3d($x,$y,$z);
+}
+@mixin transition-delay($x){
+	-webkit-transition-delay: $x;
+	transition-delay:$x;
+}
