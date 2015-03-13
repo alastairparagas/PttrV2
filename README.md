@@ -37,4 +37,7 @@ libsass and in-effect, switched from gulp-sass to gulp-ruby-sass because gulp-sa
   * Switch to master `git checkout master`
   * Do a squashing git merge (so all the commits in your branch fit into one nice commit) `git merge --squash <branchname>`
   * Then a nice commit message about the general changes you have done while you were in your branch `git commit`
-  * `git push` and done!
+  * After making sure that the merge went without a hitch, `git branch -d <branchname` to delete the branch
+  * `git push` if your branch is only local (not in Github), `git push origin :<branchname>` if it is!
+
+* To avoid annoying merge commit - "merge branch master" - [Check this out](http://www.hitthebits.com/2013/04/extra-git-merge-commits.html)

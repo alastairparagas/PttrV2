@@ -30,7 +30,18 @@
             
             .state('app.user', {
                 url: '/user',
-                abstract: true
+                abstract: true,
+                template: '<ui-view/>'
+            })
+            .state('app.user.login', {
+                url: '/login',
+                controller: 'UserLoginCtrl',
+                templateUrl: 'app/auth/partials/userLogin.html'
+            })
+            .state('app.user.register', {
+                url: '/register',
+                controller: 'UserRegisterCtrl',
+                templateUrl: 'app/auth/partials/userRegister.html'
             })
             .state('app.user.view', {
                 url: '/:id',
@@ -48,7 +59,18 @@
         
             .state('app.shelter', {
                 url: '/shelter',
-                abstract: true
+                abstract: true,
+                template: '<ui-view/>'
+            })
+            .state('app.shelter.login', {
+                url: '/login',
+                controller: 'ShelterLoginCtrl',
+                templateUrl: 'app/auth/partials/shelterLogin.html'
+            })
+            .state('app.shelter.register', {
+                url: '/register',
+                controller: 'ShelterRegisterCtrl',
+                templateUrl: 'app/auth/partials/shelterRegister.html'
             })
             .state('app.shelter.view', {
                 url: '/:id',
@@ -66,7 +88,8 @@
         
             .state('app.animal', {
                 url: '/animal',
-                abstract: true
+                abstract: true,
+                template: '<ui-view/>'
             })
             .state('app.animal.view', {
                 url: '/:id',
