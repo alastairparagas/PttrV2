@@ -39,3 +39,5 @@ libsass and in-effect, switched from gulp-sass to gulp-ruby-sass because gulp-sa
   * Then a nice commit message about the general changes you have done while you were in your branch `git commit`
   * After making sure that the merge went without a hitch, `git branch -d <branchname` to delete the branch
   * `git push` if your branch is only local (not in Github), `git push origin :<branchname>` if it is!
+
+* To avoid annoying merge commit - "merge branch master" - [Check this out](http://www.hitthebits.com/2013/04/extra-git-merge-commits.html)
