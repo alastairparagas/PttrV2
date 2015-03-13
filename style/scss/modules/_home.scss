@@ -10,6 +10,7 @@ body {
     background-repeat: no-repeat;
     color: white;
     margin-top: -70px;
+    @extend .navbar-stick;
     .container {
         margin-top: 10vh;
         margin-bottom: 10vh;

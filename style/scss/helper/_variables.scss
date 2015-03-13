@@ -1,11 +1,10 @@
-@import '../../bower_components/Bootflat/bootflat/scss/bootflat/global.scss';
 $navbar-background-color: rgba($aqua-dark, 0.8);
 $navbar-background-color-active: rgba($aqua-light, 0.8);
+
 %infoBlock {
     margin-left: 0;
     margin-right: 0;
     padding: 0px;
-    flex: 1;
     justify-content: center;
     img {
         padding: 0px;
@@ -42,4 +41,9 @@ $navbar-background-color-active: rgba($aqua-light, 0.8);
             text-align: center;
         }
     }
+}
+
+%flexCenter{
+	display:flex;
+	justify-content:center;
 }
