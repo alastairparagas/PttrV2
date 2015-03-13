@@ -1,0 +1,12 @@
+.navbar-default {
+    .navbar-brand,
+    .navbar-link,
+    .btn-link, 
+    .navbar-nav > li > a {
+        color: $white;
+    }
+}
+
+.navbar-stick {
+    margin-top: -20px;   
+}

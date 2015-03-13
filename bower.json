@@ -1,0 +1,43 @@
+{
+  "name": "pttr",
+  "version": "2.0.0",
+  "authors": [
+    "Alastair Paragas <alastairparagas@gmail.com>",
+    "Kennet Postigo <kennetfpostigo@gmail.com>",
+    "Xavier Thomas <xthom001@gmail.com>"
+  ],
+  "description": "Pttr is a web and mobile platform that allows animal shelters, stray dogs and prospective animal owners get connected with each other.",
+  "main": "index.html",
+  "keywords": [
+    "pttr",
+    "animals",
+    "shelters",
+    "stray",
+    "dogs",
+    "cats"
+  ],
+  "license": "Apache",
+  "homepage": "pttrapp.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Bootflat": "~2.0.4",
+    "angular": "~1.3.14",
+    "angular-ui-router": "~0.2.13",
+    "animate.css": "~3.2.3",
+    "firebase": "~2.2.2",
+    "angularfire": "~1.0.0",
+    "angular-bootstrap": "~0.12.1",
+    "font-awesome": "~4.3.0",
+    "sass-css3-mixins": "*"
+  },
+  "resolutions": {
+    "angular": "~1.3.14"
+  }
+}

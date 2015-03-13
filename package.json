@@ -1,0 +1,42 @@
+{
+  "name": "pttr",
+  "version": "2.0.0",
+  "description": "Pttr is a web and mobile platform that allows animal shelters, stray dogs and prospective animal owners get connected with each other.",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alastairparagas/PttrV2.git"
+  },
+  "keywords": [
+    "pttr",
+    "animals",
+    "shelters",
+    "rescue",
+    "dogs",
+    "cats"
+  ],
+  "author": {
+    "name": "Alastair Paragas",
+    "email": "alastairparagas@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Xavier Thomas",
+      "email": "xthom001@fiu.edu"
+    },
+    {
+      "name": "Kennet Postigo",
+      "email": "kennetfpostigo@gmail.com"
+    }
+  ],
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/alastairparagas/PttrV2/issues"
+  },
+  "homepage": "https://github.com/alastairparagas/PttrV2",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^1.3.3"
+  }
+}
