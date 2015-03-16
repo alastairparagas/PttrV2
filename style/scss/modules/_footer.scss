@@ -1,20 +1,34 @@
-html {
-    position: relative;
-    min-height: 100%;
+// Responsive variable-height footer hack
+html, body {
+    height: 100%;
 }
+
 body {
-    margin-bottom: 60px;
+    display: table;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+nav {
+    display: table-row;
+    height: 1px;
+}
+
+.content {
+    display: table-row;
+    height: 100px;
 }
 
 footer {
     position: absolute;
-    height: 60px;
     background: $navbar-background-color;
     border-color: $navbar-background-color;
     width: 100%;
     color: $navbar-font-color;
     .container {
-        line-height: 60px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        line-height: 30px;
         p {
             margin: 0px;
             color: darken($navbar-background-color, 20%);
