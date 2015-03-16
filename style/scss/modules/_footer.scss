@@ -1,0 +1,37 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px;
+}
+
+footer {
+    position: absolute;
+    height: 60px;
+    background: $navbar-background-color;
+    border-color: $navbar-background-color;
+    width: 100%;
+    color: $navbar-font-color;
+    .container {
+        line-height: 60px;
+        p {
+            margin: 0px;
+            color: darken($navbar-background-color, 20%);
+        }
+        a {
+            color: lighten($navbar-background-color, 35%);
+        }
+    }
+    #socialMedia {
+        text-align: right;
+        display: inline-block;
+        width: 100%;
+        a {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
