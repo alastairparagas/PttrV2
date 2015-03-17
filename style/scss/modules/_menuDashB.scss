@@ -21,7 +21,6 @@
     position: relative;
     .pgwrap {
         padding-top: 8%;
-        background: rgba(30, 227, 206, 1);
     }
     .menu-button {
         position: fixed;
@@ -449,7 +448,7 @@
         height: 100%;
     }
     /* Anchor will cover the whole item by default */
-    
+
     .grid figure figcaption > a {
         z-index: 1000;
         text-indent: 200%;
