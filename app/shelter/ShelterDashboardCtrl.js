@@ -19,7 +19,6 @@
                 }
                 return [];
             };
-
             $scope.activate = function () {
                 $scope.showmenu = !$scope.showmenu;
             };
@@ -35,8 +34,8 @@
                     tab: 'Animal List',
                     url: 'app/shelter/partials/dash_animalList.html'
                 }, {
-                    tab: 'Donations',
-                    url: 'app/shelter/partials/dash_donation.html'
+                    tab: 'Add Pet',
+                url: 'app/shelter/partials/addPet.html'
                 }, {
                     tab: 'Liked Animals',
                     url: 'app/shelter/partials/dash_Liked.html'
@@ -55,8 +54,6 @@
             $scope.isActiveTab = function(taburl) {
                 return taburl === $scope.currentTab;
             };
-            $scope.mostLiked = function() {
-                // will get the most liked animal from db
-            };
+            
         }]);
 }(window));

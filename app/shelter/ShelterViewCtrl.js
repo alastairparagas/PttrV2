@@ -1,38 +1,41 @@
-(function(window){
+(function(window) {
     'use strict';
-	var angular = window.angular;
-	angular.module('pttr.user')
-	.controller('ShelterViewCtrl',['$scope','ShelterService','AnimalService', function($scope,ShelterService,AnimalService){
-		AnimalService.getAnimals().then(function(animalList) {
-                    $scope.animals = animalList;
+    var angular = window.angular;
+    angular.module('pttr.user')
+        .controller('ShelterViewCtrl', ['$scope', 'ShelterService', 'AnimalService', function($scope, ShelterService, AnimalService) {
+            AnimalService.getAnimals().then(function(animalList) {
+                $scope.animals = animalList;
             });
-		$scope.animalLiked = [{
-                likes: 23,
-                pet: "Cat"
+            $scope.showmenu = false;
+            $scope.tabs = [{
+                tab: 'MainDash',
+                url: 'app/shelter/partials/dash_main.html'
             }, {
-                likes: 23,
-                pet: "Cat"
+                tab: 'Animal List',
+                url: 'app/shelter/partials/dash_animalList.html'
             }, {
-                likes: 23,
-                pet: "Cat"
+                tab: 'Add Pet',
+                url: 'app/shelter/partials/addPet.html'
             }, {
-                likes: 23,
-                pet: "Cat"
-            }, {
-                likes: 23,
-                pet: "Cat"
-            }, {
-                likes: 23,
-                pet: "Cat"
-            }, {
-                likes: 23,
-                pet: "Cat"
-            }, {
-                likes: 23,
-                pet: "Cat"
-            }, {
-                likes: 23,
-                pet: "Cat"
-            }]
-	}])
+                tab: 'Liked Animals',
+                url: 'app/shelter/partials/dash_Liked.html'
+            }];
+            // Makes the current tab stick to the page which the user selected on the view
+            if (localStorage.getItem("changeview") === "true") {
+                $scope.currentTab = localStorage.getItem("sheltertab");
+            } else {
+                $scope.currentTab = 'app/shelter/partials/dash_animalList.html';
+            }
+            $scope.onClickTab = function(tab) {
+                $scope.currentTab = tab.url;
+                localStorage.setItem("sheltertab", $scope.currentTab);
+                localStorage.setItem("changeview", true);
+            };
+            $scope.isActiveTab = function(taburl) {
+                return taburl === $scope.currentTab;
+            };
+            $scope.activate = function() {
+                $scope.showmenu = !$scope.showmenu;
+            };
+        }])
 }(window));

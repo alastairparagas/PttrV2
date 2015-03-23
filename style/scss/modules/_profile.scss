@@ -64,6 +64,7 @@
 }
 
 #shelterPage {
+    @extend %dashmenu;
     .shelter-header {
         background-size: cover;
         background-image: url('../../image/dog_lineup.jpg');

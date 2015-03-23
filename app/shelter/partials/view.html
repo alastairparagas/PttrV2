@@ -1,65 +1,90 @@
 <div class="animated fadeIn" id="shelterPage">
-	<div class="container-fluid shelter-header">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="profile-pic-cont">
-					<img src="image/shelter.jpg" alt="" class="profile-pic img-responsive">
-					<h3>Tri County Animal Rescue</h3>
-					<button type="button" class="btn btn-default btn-donate">Donate</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container-fluid" ng-class="{'show-menu': showmenu }">
+        <div class="menu-wrap">
+            <nav class="menu">
+                <div class="profile"><img src="image/shelter.jpg" alt="" /><span>Animal Shelter</span>
+                </div>
+                <div class="link-list">
+                    <a ng-repeat="tab in tabs" ng-click="onClickTab(tab)"><span>{{tab.tab}}</span></a>
+                </div>
+                <div class="icon-list">
+                    <!-- takes the user to their dash board -->
+                    <a ui-sref="app.shelter.view"><i class="fa fa-fw fa-home"></i></a>
+                    <!-- Takes the user to their own view -->
+                    <a ui-sref="app.shelter.edit"><i class="fa fa-fw fa-question-circle"></i></a>
+                    <!-- log out  -->
+                    <a><i class="fa fa-fw fa-power-off"></i></a>
+                </div>
+            </nav>
+        </div>
+        <!-- end menu -->
+        <!-- button to activate the menu -->
+        <!-- start btn -->
+        <button ng-click="activate()" class="menu-button" id="open-button"><i class="fa fa-fw fa-cog"></i><span>Open Menu</span>
+        </button>
+        <div class="container-fluid shelter-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile-pic-cont">
+                        <img src="image/shelter.jpg" alt="" class="profile-pic img-responsive">
+                        <h3>Tri County Animal Rescue</h3>
+                        <button type="button" class="btn btn-default btn-donate">Donate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="row sec-padding">
-			<div class="container">
-				<div class="col-md-8">
-					<div class="left-section">
-						<div class="title">
-							<h4 class="box-header">Pets Available</h4>
-						</div>
-					</div>
-				</div>
+        <div class="row sec-padding">
+            <div class="container">
+                <div class="col-md-8">
+                    <div class="left-section">
+                        <div class="title">
+                            <h4 class="box-header">Pets Available</h4>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="col-md-4">
-					<div class="right-section">
-						<div class="title">
-							<h4 class="box-header">Contact Info</h4>
-						</div>
-						<div class="content">
-							<p>
-								16101 W Dixie Hwy<br>
-								North Miami Beach, FL 33160<br>
-								Phone: (305) 696-0800
-							</p>
-							<p>shelter@animalrescue.com</p>
-						</div>
-					</div>
-				</div>
+                <div class="col-md-4">
+                    <div class="right-section">
+                        <div class="title">
+                            <h4 class="box-header">Contact Info</h4>
+                        </div>
+                        <div class="content">
+                            <p>
+                                16101 W Dixie Hwy
+                                <br> North Miami Beach, FL 33160
+                                <br> Phone: (305) 696-0800
+                            </p>
+                            <p>shelter@animalrescue.com</p>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="col-md-4">
-					<div class="right-section">
-						<div class="title">
-							<h4 class="box-header">Services and Hours of Operations</h4>
-						</div>
-						<div class="content">
-							<p>Sunday and Monday: Closed <br>Tuesday through Friday: 9:00am – 11:30am and 1:00pm – 3:30pm <br>Saturday: 9:00am – 3:30pm</p>
-						</div>
-					</div>
-				</div>
+                <div class="col-md-4">
+                    <div class="right-section">
+                        <div class="title">
+                            <h4 class="box-header">Services and Hours of Operations</h4>
+                        </div>
+                        <div class="content">
+                            <p>Sunday and Monday: Closed
+                                <br>Tuesday through Friday: 9:00am – 11:30am and 1:00pm – 3:30pm
+                                <br>Saturday: 9:00am – 3:30pm</p>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="col-md-4">
-					<div class="right-section">
-						<div class="title">
-							<h4 class="box-header">Additonal Information</h4>
-						</div>
-						<div class="content">
-							<p>For spay/neuter appointments (or to change or cancel a surgery appointment), please call 305-749-1827 during hours of operation listed above.</p>
-						</div>
-					</div>
-				</div>
+                <div class="col-md-4">
+                    <div class="right-section">
+                        <div class="title">
+                            <h4 class="box-header">Additonal Information</h4>
+                        </div>
+                        <div class="content">
+                            <p>For spay/neuter appointments (or to change or cancel a surgery appointment), please call 305-749-1827 during hours of operation listed above.</p>
+                        </div>
+                    </div>
+                </div>
 
-			</div>
-		</div>
-
+            </div>
+        </div>
+    </div>
 </div>

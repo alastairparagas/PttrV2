@@ -2,6 +2,7 @@
     var angular = window.angular;
     angular.module("pttr.shelter")
         .controller('ShelterEditCtrl', ['$scope', function($scope) {
+            $scope.showmenu = false;
             $scope.tabs = [{
                 tab: 'MainDash',
                 url: 'app/shelter/partials/dash_main.html'
@@ -9,8 +10,8 @@
                 tab: 'Animal List',
                 url: 'app/shelter/partials/dash_animalList.html'
             }, {
-                tab: 'Donations',
-                url: 'app/shelter/partials/dash_donation.html'
+                tab: 'Add Pet',
+                url: 'app/shelter/partials/addPet.html'
             }, {
                 tab: 'Liked Animals',
                 url: 'app/shelter/partials/dash_Liked.html'
@@ -28,6 +29,9 @@
             };
             $scope.isActiveTab = function(taburl) {
                 return taburl === $scope.currentTab;
+            };
+             $scope.activate = function () {
+                $scope.showmenu = !$scope.showmenu;
             };
         }])
 }(window));
