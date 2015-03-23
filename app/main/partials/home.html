@@ -17,21 +17,21 @@
 <section id="pttrInfo">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3 infoBlock onHoverInfo1">
-            <img class="img-responsive"src="image/infoBlock1.jpg">
-            </div>
-
-            <div class="col-sm-3 infoBlock onHoverInfo2">
-            <img class="img-responsive" src="image/infoBlock2.jpg">
-            </div>
-
-            <div class="col-sm-3 infoBlock onHoverInfo3">
-            <img class="img-responsive" src="image/infoBlock3.png">
-            </div>
-
-            <div class="col-sm-3 infoBlock onHoverInfo4">
-            <img class="img-responsive" src="image/infoBlock4.jpg">
+            <div class="col-sm-3 infoBlock " ng-repeat="tab in tabs" ng-click="onClickTab(tab)" ng-mouseenter="activate = !activate"  ng-mouseleave="activate = !activate" >
+                <div ng-class="{active:isActiveTab(tab.url)}" >
+                    <div class="overlay infoAnimate fadeUp" ></div>
+                    <img class="img-responsive" ng-src="{{tab.img}}">
+                    <div class="infoTitle_blk animated" ng-class="{fadeInUp:activate, fadeOutDown: !activate}">
+                        <h2>{{tab.title}}</h2>
+                    </div>
+                    <div class="arrow_blk">
+                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="container">
+        <div ng-include="currentTab"></div>
     </div>
 </section>

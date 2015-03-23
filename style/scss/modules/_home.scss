@@ -24,29 +24,101 @@ body {
     }
     #signUp {
         background-color: rgba(#48CFAD, 0.8);
-        border-color:rgba(#48CFAD, 0.8);
+        border-color: rgba(#48CFAD, 0.8);
     }
     .button-group {
-        margin-top: 5vh;
+        margin-top: 2vh;
     }
     p {
-        margin-top: 5vh;
+        margin-top: 2vh;
     }
 }
 #pttrInfo {
     padding: 0;
     margin: 0;
-    display: flex;
-    .onHoverInfo1 {
-        @extend %infoBlock;
+    .infoBlock {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0px;
+        position: relative;
+        cursor: pointer;
+        img {
+            padding: 0px;
+        }
+        .infoTitle_blk {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 20;
+            h2 {
+                text-align: center;
+                color:white;
+            }
+        }
+        .overlay {
+            @include sameWH(100%);
+            position: absolute;
+            top: 0;
+            background-color: black;
+            opacity: 0.1;
+            z-index: 10;
+        }
+        .arrow_blk {
+            display: none;
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+            color:#FFFFFF;
+            z-index:20;
+        }
+        &:hover {
+            .overlay {
+               opacity: 0.3;
+            }
+            .arrow_blk {
+                display: flex;
+                justify-content: center;
+            }
+            .infoTitle_blk {
+                display: block;
+            }
+        }
+        .active {
+            .overlay {
+                background-color: black;
+                opacity: 0.3;
+            }
+            .arrow_blk {
+                display: flex;
+                justify-content: center;
+            }
+            .infoTitle_blk {
+                display: block;
+            }
+        }
     }
-    .onHoverInfo2 {
-        @extend %infoBlock;
-    }
-    .onHoverInfo3 {
-        @extend %infoBlock;
-    }
-    .onHoverInfo4 {
-        @extend %infoBlock;
+    .infoblk_content {
+        width: 100%;
+        .content_title {
+            h1 {
+                text-align: center;
+                color:$base-color-g;
+            }
+        }
+        .icon{
+            font-size:80px;
+            text-align:center;
+            color:#CCCCCC;
+        }
+        .content{
+            font-size:14px;
+            color:#7D7D7D;
+            text-align:justify;
+        }
+        .stBtn{
+        @extend %button;
+        border-color:#bbebdf !important;
+        }
     }
 }
+

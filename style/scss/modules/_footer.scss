@@ -1,26 +1,23 @@
 // Responsive variable-height footer hack
-html, body {
-    height: 100%;
-}
-
-body {
-    display: table;
-    width: 100%;
-    overflow-x: hidden;
-}
 
 nav {
-    display: table-row;
     height: 1px;
 }
 
 .content {
-    display: table-row;
     height: 100px;
 }
 
 footer {
-    position: absolute;
+    z-index: 500;
+    position: relative;
+    &.regPage{
+        position: absolute;
+    }
+    &.dshbrd{
+        position: fixed;
+    }
+    bottom: 0;    
     background: $navbar-background-color;
     border-color: $navbar-background-color;
     width: 100%;

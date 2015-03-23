@@ -1,0 +1,122 @@
+<div id="shelterdash">
+    <!-- this is the dashboard header bar -->
+    <div class="container-fluid">
+        <div class="row nvcont">
+            <!-- this is the menu which appears when the user click on the gear box -->
+            <ul ng-cloak class="nav nav-tabs nav-stacked animated" ng-class="{slide:sideClicked, slideInLeft:sideClicked,slideInRight: !sideClicked}">
+                <li class="pill_header"><a>Home</a>
+                </li>
+                <li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}">
+                    <a ng-click="onClickTab(tab)">{{tab.tab}} <span></span></a>
+                </li>
+                <div class="sidebumb" ng-click="sideClicked = !sideClicked">
+                    <i class=" menuIcon fa fa-bars"></i>
+                </div>
+            </ul>
+            <div class="col-sm-12" ng-class="{'show-menu': showmenu }">
+                <!-- start menu -->
+                <div class="menu-wrap">
+                    <nav class="menu">
+                        <div class="profile"><img src="image/shelter.jpg" alt=""/><span>Animal Shelter</span>
+                        </div>
+                        <div class="link-list">
+                            <a href="#"><span>Liked Animals</span></a>
+                            <a href="#"><span>Adoptions Requested</span></a>
+                            <a href="#"><span>Donations Received</span></a>
+                            <a href="#"><span>Change Shelter Info</span></a>
+                        </div>
+                        <div class="icon-list">
+                            <!-- takes the user to their dash board -->
+                            <a ui-sref="app.shelter.dashboard"><i class="fa fa-fw fa-home"></i></a>
+                            <!-- Takes the user to their own view -->
+                            <a ui-sref="app.shelter.view"><i class="fa fa-fw fa-question-circle"></i></a>
+                            <!-- log out  -->
+                            <a><i class="fa fa-fw fa-power-off"></i></a>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end menu -->
+                <!-- button to activate the menu -->
+                <!-- start btn -->
+                <button ng-click="activate()" class="menu-button" id="open-button"><i class="fa fa-fw fa-cog"></i><span>Open Menu</span>
+                </button>
+                <!-- end btn -->
+                <!-- This outputs all of the partial pages -->
+                <div ng-include="currentTab" ng-cloak></div>
+                <!-- Modal for the animal info -->
+                <!-- start modal -->
+                <div class="modal fade" id="animalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                </button>
+                                <h3 class="modal-title" id="myModalLabel">{{animal.name}}</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img class="img-responsive img-rounded" ng-src="{{animal.pictures.largePicture}}" alt="img25" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="stray-info well well-lg">
+                                            <ul>
+                                                <li>
+                                                    Animal Id: {{animal.id}}
+                                                </li>
+                                                <li>
+                                                    Status: {{animal.status}}
+                                                </li>
+                                                <li>
+                                                    Species: {{animal.species}}
+                                                </li>
+                                                <li>
+                                                    Primary Breed: {{animal.breed}}
+                                                </li>
+                                                <li>
+                                                    Sex: {{animal.sex}}
+                                                </li>
+                                                <li>
+                                                    Color: {{animal.color}}
+                                                </li>
+                                                <li>
+                                                    Shelter ID: {{animal.belongsToShelter}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a type="button" class="mbtn btn btn-default" data-dismiss="modal">Close</a>
+                                <a type="button" class="mbtn btn btn-primary">{{animal.name + "'s "}} Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end modal -->
+                <!-- Modal for removing Animal -->
+                <!-- start modal -->
+                <div class="modal fade" id="removeAnimal" tabindex="-1" role="dialog" aria-labelledby="RemoveAnimal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                </button>
+                                <h2 class="modal-title" id="RemoveAnimal">WARNING!!</h2>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Deleting <b><u>{{animal.name}}</u></b> from the system</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <a type="button" class="btn btn-success" data-dismiss="modal">Close</a>
+                                <a type="button" class="btn btn-danger">Delete {{animal.name + "'s "}} Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end modal -->
+            </div>
+        </div>
+    </div>
+</div>

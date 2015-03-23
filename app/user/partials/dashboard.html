@@ -1,202 +1,178 @@
 <div id="userdash">
-    <header>
-        <h1>DashBoard</h1>
-    </header>
-    <div class="container-fluid" ng-class="{'show-menu': showmenu }">
+    <!-- this is the dashboard header bar -->
 
+    <div class="container-fluid" ng-class="{'show-menu': showmenu }">
+        <!-- this is the menu which appears when the user click on the gear box -->
+        <!-- start menu -->
         <div class="menu-wrap">
             <nav class="menu">
                 <div class="profile"><img src="img/related/sidebartransitions.png" alt="Matthew Greenberg" /><span>Matthew Greenberg</span>
                 </div>
                 <div class="link-list">
-                    <a href="#"><span>Latest stories</span></a>
-                    <a href="#"><span>Your friends</span></a>
-                    <a href="#"><span>Personal Settings</span></a>
-                    <a href="#"><span>Security &amp; Privacy</span></a>
+                    <a href="#"><span>Liked Animals</span></a>
+                    <a href="#"><span>Shelter Donated</span></a>
+                    <a href="#"><span>Blank idea</span></a>
+                    <a href="#"><span>Blank idea</span></a>
                 </div>
                 <div class="icon-list">
-                    <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                    <a href="#"><i class="fa fa-fw fa-question-circle"></i></a>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i></a>
+                    <!-- takes the user to their dash board -->
+                    <a ui-sref="app.user.dashboard"><i class="fa fa-fw fa-home"></i></a>
+                    <!-- Takes the user to their own view -->
+                    <a ui-sref="app.user.view"><i class="fa fa-fw fa-question-circle"></i></a>
+                    <!-- log out  -->
+                    <a><i class="fa fa-fw fa-power-off"></i></a>
                 </div>
             </nav>
         </div>
+        <!-- end menu -->
+
+        <!-- button to activate the menu -->
+        <!-- start btn -->
         <button ng-click="activate()" class="menu-button" id="open-button"><i class="fa fa-fw fa-cog"></i><span>Open Menu</span>
         </button>
-        <div class="row pgwrap">
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
+        <!-- end btn -->
+
+        <!-- page content this is basically an angular directive which outputs all of the information in the backend -->
+        <div class="row maincnt">
+            <form class="crit navbar-left navbar-form">
+                <div class="form-group">
+                    <label for="animaltype">Animal Type:</label>
+                    <select name="animal" id="animaltype" ng-model="animalTypeSelection" ng-options="animalT as animalT.type for animalT in uniqueList" >
+                        <option value="" >Select Type</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="breed">Breed:</label>
+                    <select name="breed" id="breed" ng-model="breedListSelection" ng-options="uniquebreeds.breed for uniquebreeds in AnimalTypeSelected(animalTypeSelection.breeds)">
+                        <option value="">Select Type</option>
+                    </select>
+                </div>
+            </form>
+           <div class="col-sm-3 animal" ng-repeat="pet in animals | animalytype:animalTypeSelection.type:breedListSelection | limitTo: 50" back-img="{{pet.pictures.largePicture}}" ng-mouseenter="enterImage = true" ng-mouseleave="enterImage = false">
+                <div class="info_container animated" ng-class="{ fadeIn:enterImage, fadeOut:!enterImage }">
+                    <div class="overlay" ng-click="populate(pet)" data-toggle="modal" data-target="#animalInfo"></div>
+                    <div class="icon_area animated" ng-class="{ fadeInUp:enterImage , fadeOutDown:!enterImage }">
+                        <ul>
+                            <li>
+                                <button class="btn btn-default">Like</button>
+                            </li>
+                            <li>
+                                <button class="btn btn-default">Adopt</button>
+                            </li>
+                            <li>
+                                <button class="btn btn-default" data-toggle="modal" data-target="#donate" ng-click="populate(pet)">Donate</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="title animated" ng-class="{fadeOutDown:!enterImage , fadeInUp:enterImage }">
+                        <h4>{{pet.name}}</h4>
+                        <p>
+                            Primary Breed:
+                            <br> {{pet.breed}}
+                        </p>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="grid">
-                    <figure class="effect-zoe" data-toggle="modal" data-target="#myModal">
-                        <img src="image/25.jpg" alt="img25" />
-                        <figcaption>
-                            <h2>Creative <span>Zoe</span></h2>
-                            <p class="icon-links">
-                                <a href="#"><span class="icon-heart"></span></a>
-                                <a href="#"><span class="icon-eye"></span></a>
-                                <a href="#"><span class="icon-paper-clip"></span></a>
-                            </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-                            <p class="dname description">Name of Dog</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div> 
-        <!-- Modal -->
-        
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        </div>
+
+        <!-- Modal for the animal info -->
+        <!-- start modal -->
+        <div class="modal fade" id="animalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        <h3 class="modal-title" id="myModalLabel">{{animal.name}}</h3>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img class="img-responsive img-rounded" ng-src="{{animal.pictures.largePicture}}" alt="img25" />
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="well well-lg">
+                                    <ul>
+                                        <li>
+                                            Animal Id: {{animal.id}}
+                                        </li>
+                                        <li>
+                                            Status: {{animal.status}}
+                                        </li>
+                                        <li>
+                                            Species: {{animal.species}}
+                                        </li>
+                                        <li>
+                                            Primary Breed: {{animal.breed}}
+                                        </li>
+                                        <li>
+                                            Sex: {{animal.sex}}
+                                        </li>
+                                        <li>
+                                            Color: {{animal.color}}
+                                        </li>
+                                        <li>
+                                            Shelter Id: {{animal.belongsToShelter}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+                        <a type="button" class="btn btn-primary">{{animal.name + "'s "}} Profile</a>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- end modal -->
+
+        <!-- modal for the donation button -->
+        <!-- start donation btn -->
+        <div class="modal fade" id="donate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <form  name="donate" novalidate>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <h3 class="modal-title" id="myModalLabel">Donation Form </h3>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="fname">FirstName:</label>
+                                <input name="fname" type="text" class="form-control" id="fname" placeholder="FirstName:" required ng-model="user.firstName">
+                            </div>
+                            <div class="form-group">
+                                <label for="lname">LastName:</label>
+                                <input name="lname" type="text" class="form-control" id="lname" placeholder="LastName:" required ng-model="user.lastName">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input name="email" type="email" class="form-control" id="email" placeholder="Email:" required ng-model="user.email">
+                            </div>
+                            <div class="form-group">
+                                <label for="animalId">Animal Id:</label>
+                                <input name="animalId" type="text" class="form-control" id="aId" ng-model="animal.id" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="shelterId">Shelter Id:</label>
+                                <input name="shelterId" type="text" class="form-control" id="shelterId" ng-model="animal.belongsToShelter" disabled>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" ng-disabled="donate.$invalid">Donate</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- end of donation button -->
     </div>
+</div>
 </div>

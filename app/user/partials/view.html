@@ -1,1 +1,34 @@
-
+<div class="animated fadeIn" id="profilePage">
+    <div class="container-fluid">
+        <div class="header row">
+            <div class="col-sm-12">
+                <img src="image/userDefault.png" class="profilePic img-responsive">
+                <h3>{name}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <br><div class="info_blk solidB liked">
+                    <ul>
+                        <li class="indie" ng-repeat="liked in animalLiked">
+                            <h3>liked: {{liked.pet}}</h3>
+                            <h4>{{liked.name}}</h3>
+                        </li>
+                    </ul>
+                </div><br>
+            </div>
+        </div>
+        <div class="row test">
+            <div class="container">
+                <div class="info_blk solidB donated">
+                    <ul>
+                        <li class="indie" ng-repeat="donated in userDonations">
+                            <h3>Donated: {{donated.shelter}}</h3>
+                            <h4>{{donated.amount}}</h4>
+                        </li>
+                    </ul>
+                </div><br>
+            </div>
+        </div>
+    </div>
+</div>

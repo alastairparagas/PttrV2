@@ -1,0 +1,115 @@
+<div id="sheltermain" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="title-blk">
+                <h1>Shelters Information</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="hdr-titleblk">
+                <h4>
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  Animal Stats</h4>
+            </div>
+            <div class="solidB">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="sub_titleblk">
+                            <h5>Species List</h5>
+                        </div>
+                        <ul>
+                            <li ng-repeat="pet in uniqueList">
+                                <a type="button" data-toggle="collapse" data-target=".{{pet.type+$index}}" aria-expanded="false" aria-controls="collapseExample">{{pet.type}}</a>
+                                <div class="collapse {{pet.type + $index}}">
+                                    <div class="well">
+                                        <ul>
+                                            <li ng-repeat="specificBreed in pet.breeds">
+                                                {{specificBreed.breed}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="sub_titleblk">
+                            <h5>Count</h5>
+                        </div>
+                        <ul>
+                            <li ng-repeat="pet in uniqueList">
+                                {{pet.count}}
+                                <div class="collapse {{pet.type + $index}}">
+                                    <div class="well">
+                                        <ul>
+                                            <li ng-repeat="uniqueBreedCount in pet.breeds">
+                                                {{uniqueBreedCount.count}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="blk-box">
+                <div class="hdr-titleblk">
+                    <h4><span class="glyphicon glyphicon-star" aria-hidden="true"></span>  Top Liked Animal</h4>
+                </div>
+                <div class="solidB">
+                    Animal Name:
+                    <button class="btn btn-default"> Link to profile</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="blk-box">
+                <div class="hdr-titleblk">
+                    <h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>  Donations</h4>
+                </div>
+                <div class="solidB info_blk">
+                    <ul>
+                        <li ng-repeat="user in userDonated">
+                            {{user.user}} Amount: {{user.amount | currency}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BOTTOM ROW -->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="blk-box">
+                <div class="hdr-titleblk">
+                    <h4><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>  Animals Liked</h4>
+                </div>
+                <div class="info_blk solidB">
+                    <ul>
+                        <li ng-repeat="liked in animalLiked">
+                            {{liked.pet}} Likes : {{liked.likes}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="blk-box">
+                <div class="hdr-titleblk">
+                    <h4><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  Adoption Requests</h4>
+                </div>
+                <div class="solidB info_blk">
+                    <ul>
+                        <li ng-repeat="adopt in AdoptionRequest">
+                            {{adopt.user}} Animal to be adopted: {{adopt.pet}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
