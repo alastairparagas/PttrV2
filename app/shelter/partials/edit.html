@@ -1,27 +1,6 @@
 <div class="login animated fadeInUp" id="editShelter" >
     <div class="container-fluid" ng-class="{'show-menu': showmenu }">
-        <div class="menu-wrap">
-            <nav class="menu">
-                <div class="profile"><img src="image/shelter.jpg" alt="" /><span>Animal Shelter</span>
-                </div>
-                <div class="link-list">
-                    <a ng-repeat="tab in tabs" ng-click="onClickTab(tab)"><span>{{tab.tab}}</span></a>
-                </div>
-                <div class="icon-list">
-                    <!-- takes the user to their dash board -->
-                    <a ui-sref="app.shelter.view"><i class="fa fa-fw fa-home"></i></a>
-                    <!-- Takes the user to their own view -->
-                    <a ui-sref="app.shelter.edit"><i class="fa fa-fw fa-question-circle"></i></a>
-                    <!-- log out  -->
-                    <a><i class="fa fa-fw fa-power-off"></i></a>
-                </div>
-            </nav>
-        </div>
-        <!-- end menu -->
-        <!-- button to activate the menu -->
-        <!-- start btn -->
-        <button ng-click="activate()" class="menu-button" id="open-button"><i class="fa fa-fw fa-cog"></i><span>Open Menu</span>
-        </button>
+        <div ng-include="'app/shelter/partials/include/_menuShelter.html'"></div>
         <div class="container profileSettings">
 
             <h1>Edit Information</h1>
@@ -64,3 +43,4 @@
         </div>
     </div>
 </div>
+<div ng-include="'app/main/partials/include/_footer.html'"></div>

@@ -7,19 +7,7 @@
                 $scope.animals = animalList;
             });
             $scope.showmenu = false;
-            $scope.tabs = [{
-                tab: 'MainDash',
-                url: 'app/shelter/partials/dash_main.html'
-            }, {
-                tab: 'Animal List',
-                url: 'app/shelter/partials/dash_animalList.html'
-            }, {
-                tab: 'Add Pet',
-                url: 'app/shelter/partials/addPet.html'
-            }, {
-                tab: 'Liked Animals',
-                url: 'app/shelter/partials/dash_Liked.html'
-            }];
+            $scope.tabs = ShelterService.getTabs;
             // Makes the current tab stick to the page which the user selected on the view
             if (localStorage.getItem("changeview") === "true") {
                 $scope.currentTab = localStorage.getItem("sheltertab");
