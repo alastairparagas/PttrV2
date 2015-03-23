@@ -1,0 +1,102 @@
+#editShelter {
+    @extend %gearmenu;
+    .profileSettings {
+        h1 {
+            text-align: center;
+        }
+        .txt_blk {
+
+            p, li {
+                padding-left: 7%;
+                padding-right: 7%;
+                list-style: none;
+                text-align: justify;
+                margin-bottom: 10px;
+            }
+            h5 {
+                text-align: center;
+                color: rgba(#48CFAD, 0.8);
+            }
+        }
+        .btn {
+            @extend %button;
+            &:nth-child(0) {
+                margin-left: 2%;
+            }
+            &:nth-child(1) {
+                margin-right: 2%;
+            }
+        }
+        input,
+        textarea {
+            @extend %input;
+        }
+        img {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+#editUser {
+    @extend %gearmenu;
+    .profileSettings {
+        h1 {
+            text-align: center;
+        }
+        .txt_blk {
+            p, li {
+                padding-left: 7%;
+                padding-right: 7%;
+                list-style: none;
+                text-align: justify;
+                margin-bottom: 10px;
+            }
+            h5 {
+                text-align: center;
+                color: rgba(#48CFAD, 0.8);
+            }
+        }
+        .btn {
+            @extend %button;
+            &:nth-child(0) {
+                margin-left: 2%;
+            }
+            &:nth-child(1) {
+                margin-right: 2%;
+            }
+        }
+        input,
+        textarea {
+            @extend %input;
+        }
+        img {
+            margin-bottom: 50px;
+        }
+    }
+}
+#editAnimal{
+    .profileSettings {
+        .well {
+            background-color: #ecf0f1;
+            border-radius: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            .form-control:focus{
+                border-color: $base-color-g;
+            }
+        }
+        .page-header {
+            text-align: center;
+        }
+        .btn {
+            @extend %button;
+            &:nth-child(0) {
+                margin-left: 2%;
+            }
+            &:nth-child(1) {
+                margin-right: 2%;
+            }
+            margin-bottom: 2%;
+        }
+    }
+
+}

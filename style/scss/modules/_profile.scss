@@ -1,0 +1,183 @@
+.navbar {
+    margin-bottom: 0;
+}
+
+#profilePage {
+    .info_blk {
+        background-color: $base-color-gray;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        ul {
+            text-align: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        overflow-x: auto;
+        ul {
+            display: inline-flex;
+            li {
+                width: 200px;
+                height: auto;
+                margin: 2%;
+            }
+        }
+    }
+    .indie {
+        background: $base-color-g;
+        border-radius: 2px;
+        h3 {
+            color: #bbebdf;
+        }
+        h4 {
+            color: white;
+        }
+    }
+    h2 {
+        color: $base-color-g;
+    }
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header {
+        background-size: cover;
+        background-image: url('../../image/defaultHeader.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        height: 400px;
+        h3 {
+            color: white;
+            text-shadow: 1px 1px black;
+            text-align: center;
+        }
+        .profilePic {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            border: 1px solid white;
+            margin-top: 10%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+#shelterPage {
+    .shelter-header {
+        background-size: cover;
+        background-image: url('../../image/dog_lineup.jpg');
+        background-position: 0 center;
+        width: 100%;
+        height: 400px;
+        text-shadow: 1px 1px 1px black;
+        margin-bottom: 20px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    .profile-pic {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        border: 1px solid white;
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .profile-pic-cont {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .btn-donate {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-color: #bbebdf !important;
+        @extend %button;
+    }
+    .img-circle {
+        height: auto;
+        width: 200px;
+        border: 1px solid white;
+    }
+    .left-section {
+        height: 800px;
+        background-color: $base-color-g;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        border-radius: 2px;
+        margin-bottom: 20px;
+    }
+    .right-section {
+        background-color: $base-color-g;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        min-height: 200px;
+        margin-bottom: 20px;
+    }
+    .title {
+        background-color: $base-color-gray;
+    }
+    .box-header {
+        text-align: center;
+        background-color: $base-color-gray;
+        margin: 0;
+        padding: 20px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    .sec-padding {
+        padding: 20px;
+    }
+    .content {
+        padding: 20px;
+    }
+}
+
+#animalPage {
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header {
+        background-size: cover;
+        background-image: url('../../image/defaultAnimal.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        height: 400px;
+        h3 {
+            color: white;
+            text-shadow: 1px 1px black;
+            text-align: center;
+        }
+        .profilePic {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            border: 1px solid white;
+            margin-top: 10%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    h1 {
+        text-align: center;
+        color:#999999;
+    }
+    .aInfo {
+        background-color: $base-color-gray;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        color: $base-color-g;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 2px;
+        font-size: 16px;
+        li, p {
+            padding-top:10px;
+            padding-bottom:10px;
+            text-align: justify;
+            list-style: none;
+        }
+        p{
+            padding-left:40px;
+        }
+    }
+}
