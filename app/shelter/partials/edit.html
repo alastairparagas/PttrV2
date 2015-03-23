@@ -1,4 +1,21 @@
 <div class="login animated fadeInUp" id="editShelter">
+    <div class="menu-wrap">
+        <nav class="menu">
+            <div class="profile"><img src="image/shelter.jpg" alt="" /><span>Animal Shelter</span>
+            </div>
+            <div class="link-list">
+                <a ng-repeat="tab in tabs" ng-click="onClickTab(tab)"><span>{{tab.tab}}</span></a>
+            </div>
+            <div class="icon-list">
+                <!-- takes the user to their dash board -->
+                <a ui-sref="app.shelter.view"><i class="fa fa-fw fa-home"></i></a>
+                <!-- Takes the user to their own view -->
+                <a ui-sref="app.shelter.edit"><i class="fa fa-fw fa-question-circle"></i></a>
+                <!-- log out  -->
+                <a><i class="fa fa-fw fa-power-off"></i></a>
+            </div>
+        </nav>
+    </div>
     <div class="container profileSettings">
         <h1>Edit Information</h1>
         <h3>Basic Information</h3>

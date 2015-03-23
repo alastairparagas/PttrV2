@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row nvcont">
             <!-- this is the menu which appears when the user click on the gear box -->
-            <ul ng-cloak class="nav nav-tabs nav-stacked animated" ng-class="{slide:sideClicked, slideInLeft:sideClicked,slideInRight: !sideClicked}">
+            <!-- <ul ng-cloak class="nav nav-tabs nav-stacked animated" ng-class="{slide:sideClicked, slideInLeft:sideClicked,slideInRight: !sideClicked}">
                 <li class="pill_header"><a>Home</a>
                 </li>
                 <li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}">
@@ -12,7 +12,7 @@
                 <div class="sidebumb" ng-click="sideClicked = !sideClicked">
                     <i class=" menuIcon fa fa-bars"></i>
                 </div>
-            </ul>
+            </ul> -->
             <div class="col-sm-12" ng-class="{'show-menu': showmenu }">
                 <!-- start menu -->
                 <div class="menu-wrap">
@@ -20,16 +20,13 @@
                         <div class="profile"><img src="image/shelter.jpg" alt=""/><span>Animal Shelter</span>
                         </div>
                         <div class="link-list">
-                            <a href="#"><span>Liked Animals</span></a>
-                            <a href="#"><span>Adoptions Requested</span></a>
-                            <a href="#"><span>Donations Received</span></a>
-                            <a href="#"><span>Change Shelter Info</span></a>
+                            <a ng-repeat="tab in tabs" ng-click="onClickTab(tab)"><span>{{tab.tab}}</span></a>
                         </div>
                         <div class="icon-list">
                             <!-- takes the user to their dash board -->
-                            <a ui-sref="app.shelter.dashboard"><i class="fa fa-fw fa-home"></i></a>
+                            <a ui-sref="app.shelter.view"><i class="fa fa-fw fa-home"></i></a>
                             <!-- Takes the user to their own view -->
-                            <a ui-sref="app.shelter.view"><i class="fa fa-fw fa-question-circle"></i></a>
+                            <a ui-sref="app.shelter.edit"><i class="fa fa-fw fa-question-circle"></i></a>
                             <!-- log out  -->
                             <a><i class="fa fa-fw fa-power-off"></i></a>
                         </div>
