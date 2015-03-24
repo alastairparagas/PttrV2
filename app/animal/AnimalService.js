@@ -191,7 +191,6 @@
                     }
                 }
             }
-            window.console.log(uniqueList);
             return uniqueList;
         };
 

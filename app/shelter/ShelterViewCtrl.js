@@ -3,11 +3,18 @@
     var angular = window.angular;
     angular.module('pttr.user')
         .controller('ShelterViewCtrl', ['$scope', 'ShelterService', 'AnimalService', function($scope, ShelterService, AnimalService) {
-            AnimalService.getAnimals().then(function(animalList) {
+            AnimalService.getAnimals().then(function (animalList) {
                 $scope.animals = animalList;
+                $scope.speciesList = AnimalService.getSpeciesList();
+                $scope.breedList = AnimalService.getBreedList();
+                $scope.uniqueList = AnimalService.getAnimalsUnique();
             });
+            $scope.enterImage = false;
             $scope.showmenu = false;
             $scope.tabs = ShelterService.getTabs;
+            $scope.populate = function (animalObject) {
+                $scope.animal = animalObject;
+            };
             // Makes the current tab stick to the page which the user selected on the view
             if (localStorage.getItem("changeview") === "true") {
                 $scope.currentTab = localStorage.getItem("sheltertab");

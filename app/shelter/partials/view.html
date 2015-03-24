@@ -12,17 +12,20 @@
                 </div>
             </div>
         </div>
-
-        <div class="row sec-padding">
-            <div class="container">
+        <div class="container">
+            <div class="row sec-padding">
                 <div class="col-md-8">
                     <div class="left-section">
                         <div class="title">
                             <h4 class="box-header">Pets Available</h4>
                         </div>
+                        <div class="col-sm-3 animal" ng-repeat="pet in animals | emptyFields | limitTo: 50" back-img="{{pet.pictures.largePicture}}" >
+                            <div class="info_container">
+                                <div class="overlay" ng-click="populate(pet)" data-toggle="modal" data-target="#animalInfo"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="right-section">
                         <div class="title">
@@ -38,7 +41,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="right-section">
                         <div class="title">
@@ -51,7 +53,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="right-section">
                         <div class="title">
@@ -62,9 +63,57 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
+<div class="modal fade" id="animalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3 class="modal-title" id="myModalLabel">{{animal.name}}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img class="img-responsive img-rounded" ng-src="{{animal.pictures.largePicture}}" alt="img25" />
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="well well-lg">
+                                    <ul>
+                                        <li>
+                                            Animal Id: {{animal.id}}
+                                        </li>
+                                        <li>
+                                            Status: {{animal.status}}
+                                        </li>
+                                        <li>
+                                            Species: {{animal.species}}
+                                        </li>
+                                        <li>
+                                            Primary Breed: {{animal.breed}}
+                                        </li>
+                                        <li>
+                                            Sex: {{animal.sex}}
+                                        </li>
+                                        <li>
+                                            Color: {{animal.color}}
+                                        </li>
+                                        <li>
+                                            Shelter Id: {{animal.belongsToShelter}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+                        <a type="button" class="btn btn-primary">{{animal.name + "'s "}} Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 <div ng-include="'app/main/partials/include/_footer.html'"></div>
