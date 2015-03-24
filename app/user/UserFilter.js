@@ -3,11 +3,12 @@
     angular.module('pttr.user')
         .filter("emptyFields", function() {
             return function(items) {
-                var filtered = [];
-                for (var i = 0; i < items.length; i++) {
-                    var item = items[i];
-                    if (item.pictures.length > 0) {
-                        if (item.pictures.largePicture !== undefined || item.breed !== undefined || item.description!== undefined) {
+                var filtered = items;
+                if (items != undefined) {   
+                    filtered = [];
+                    for (var i = 0; i < items.length; i++) {
+                        var item = items[i];
+                        if (item.pictures.largePicture != undefined &&  item.pictures.largePicture != "" && item.breed !== undefined && item.description !== undefined && item.id !== undefined && item.belongsToShelter !== undefined && item.sex !== undefined && item.status !== undefined) {
                             filtered.push(item);
                         }
                     }

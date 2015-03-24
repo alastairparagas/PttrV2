@@ -2,7 +2,7 @@
     'use strict';
     var angular = window.angular;
     angular.module('pttr.shelter')
-        .controller('ShelterDashboardCtrl', ['$scope', 'ShelterService', 'AnimalService', function ($scope, ShelterService, AnimalService) {
+        .controller('ShelterDashboardCtrl', ['$scope', 'ShelterService', 'AnimalService', '$state' , function ($scope, ShelterService, AnimalService, $state) {
             $scope.showmenu = false;
             $scope.showCounts = false;
             AnimalService.getAnimals().then(function (animalList) {
@@ -11,6 +11,9 @@
                 $scope.breedList = AnimalService.getBreedList();
                 $scope.uniqueList = AnimalService.getAnimalsUnique();
             });
+            $scope.isRegularPage = function(){
+                return $state.is('app.shelter.view') || $state.is('app.shelter.view');
+            }
             $scope.AnimalTypeSelected = function (selection) {
                 if(selection) {
                     return selection;
@@ -27,7 +30,7 @@
             };
             $scope.enterImage = false;
             $scope.sideClicked = false;
-            $scope.tabs = ShelterService.getTabs;
+            $scope.tabs = ShelterService.getTabs;            
                 // Makes the current tab stick to the page which the user selected on the view
             if (localStorage.getItem("changeview") === "true") {
                 $scope.currentTab = localStorage.getItem("sheltertab");

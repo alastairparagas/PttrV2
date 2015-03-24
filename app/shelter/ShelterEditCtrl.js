@@ -4,6 +4,7 @@
         .controller('ShelterEditCtrl', ['$scope', 'ShelterService', function($scope, ShelterService) {
             $scope.showmenu = false;
             $scope.tabs = ShelterService.getTabs;
+            $scope.alternativeTabs = ShelterService.getAlternateTabs;
             // Makes the current tab stick to the page which the user selected on the view
             if (localStorage.getItem("changeview") === "true") {
                 $scope.currentTab = localStorage.getItem("sheltertab");

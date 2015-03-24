@@ -2,8 +2,11 @@
     <nav class="menu">
         <div class="profile"><a ui-sref="app.shelter.dashboard"><img src="image/shelter.jpg" alt="" /><span>Animal Shelter</span></a>
         </div>
-        <div class="link-list">
+        <div class="link-list" ng-if="isRegularPage() === false">
             <a ng-repeat="tab in tabs" ng-click="onClickTab(tab)"><span>{{tab.tab}}</span></a>
+        </div>
+        <div class="link-list" ng-if="isRegularPage() === true">
+            <a ng-repeat="tab in alternativeTabs" ng-click="onClickTab(tab)"><span>{{tab.tab}}</span></a>
         </div>
         <div class="icon-list">
             <!-- takes the user to their dash board -->

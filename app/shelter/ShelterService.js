@@ -17,6 +17,20 @@
             tab: 'Liked Animals',
             url: 'app/shelter/partials/include/_dash_Liked.html'
         }];
+        this.getAlternateTabs = [
+        	{
+        		tab: "Messages",
+        		url: ""
+        	},
+        	{
+        		tab: "Email",
+        		url: ""
+        	},
+        	{
+        		tab: "Browse Shelters",
+        		url: ""
+        	}
+        ];
     }]);
 
 }(window));

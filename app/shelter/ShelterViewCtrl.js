@@ -12,6 +12,7 @@
             $scope.enterImage = false;
             $scope.showmenu = false;
             $scope.tabs = ShelterService.getTabs;
+            $scope.alternativeTabs = ShelterService.getAlternateTabs;
             $scope.populate = function (animalObject) {
                 $scope.animal = animalObject;
             };
