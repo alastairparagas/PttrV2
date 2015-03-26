@@ -5,7 +5,7 @@
         google = window.google,
         $ = window.$;
 
-    angular.module('pttr.animal').service('AnimalService', ['$http', '$q', function ($http, $q) {
+    angular.module('pttr.animal').service('AnimalService', ['$http', '$q',function ($http, $q) {
 
         var cityName,
             animalList,
@@ -193,10 +193,14 @@
             }
             return uniqueList;
         };
-
-        // sharing data between controllers
-        var Share = this;
-        Share.AnimalInfo = "default";
+        // Shared Data service
+        this.data ={};
+        this.setData = function(input){
+            this.data = input;
+        }
+        this.getData = function(){
+            return this.data;
+        }
     }]);
 
 }(window));

@@ -45,10 +45,10 @@
                                                 <li>
                                                     Color: {{animal.color}}
                                                 </li>
-                                                <li>
+                                                <li ng-click="test()">
                                                     Shelter ID: {{animal.belongsToShelter}}
-                                                    {{getShareData}}
-                                                </li>
+                                                    
+                                                </li >
                                             </ul>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="modal-footer">
                                 <a type="button" class="mbtn btn btn-default" data-dismiss="modal" >Close</a>
-                                <a type="button" class="mbtn btn btn-primary" ng-click="setShareData(animal.name)">{{animal.name + "'s "}} Profile</a>
+                                <a data-dismiss="modal"  type="button" class="mbtn btn btn-primary"  ui-sref="app.animal.view" ng-click="passData(animal)" >{{animal.name + "'s "}} Profile</a>
                             </div>
                         </div>
                     </div>

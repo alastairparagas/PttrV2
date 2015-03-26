@@ -2,7 +2,7 @@
     'use strict';
     var angular = window.angular;
     angular.module('pttr.shelter')
-        .controller('ShelterDashboardCtrl', ['$scope', 'ShelterService', 'AnimalService', '$state' , function ($scope, ShelterService, AnimalService, $state) {
+        .controller('ShelterDashboardCtrl', ['$scope', 'ShelterService', 'AnimalService', '$state' ,'SharedData' ,function ($scope, ShelterService, AnimalService, $state,SharedData) {
             $scope.showmenu = false;
             $scope.showCounts = false;
             AnimalService.getAnimals().then(function (animalList) {
@@ -26,7 +26,7 @@
                 $scope.showmenu = !$scope.showmenu;
             };
             $scope.populate = function (animalObject) {
-                $scope.animal = animalObject;                
+                $scope.animal = animalObject;            
             };
 
             $scope.enterImage = false;
@@ -48,12 +48,9 @@
             };
 
             // sharing data between controllers
-            $scope.getShareData = AnimalService.AnimalInfo;
-            $scope.setShareData = function(data){
-                AnimalService.AnimalInfo = data;
-                console.log(AnimalService.AnimalInfo)
+            $scope.passData = function(data){
+               AnimalService.setData(data);
             }
-            
             
         }]);
 }(window));

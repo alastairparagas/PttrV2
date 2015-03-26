@@ -122,7 +122,7 @@
                     </div>
                     <div class="modal-footer">
                         <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
-                        <a type="button" class="btn btn-primary">{{animal.name + "'s "}} Profile</a>
+                        <a data-dismiss="modal" type="button" class="btn btn-primary" ui-sref="app.animal.view" ng-click="passData(animal)" >{{animal.name + "'s "}} Profile</a>
                     </div>
                 </div>
             </div>

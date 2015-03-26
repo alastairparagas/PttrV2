@@ -33,5 +33,8 @@
             $scope.activate = function() {
                 $scope.showmenu = !$scope.showmenu;
             };
+            $scope.passData = function(data){
+               AnimalService.setData(data);
+            };
         }])
 }(window));

@@ -2,31 +2,31 @@
     <div class="container-fluid">
         <div class="header row">
             <div class="col-sm-12">
-                <img src="image/userDefault.png" class="profilePic img-responsive">
-                <h3>{name}</h3>
+                <img ng-src="{{pet.pictures.largePicture}}" class="profilePic img-responsive" alt="{{pet.name}}">
+                <h3>{{pet.name}}</h3>
             </div>
         </div>
         <div class="row">
-            <h1>{{name}} Information</h1>
+            <h1>{{pet.name}} Information</h1>
             <div class="container">
                 <div class="col-sm-6">
                     <div class="aInfo">
                         <ul>
-                            <li>Name:{{name}}</li>
-                            <li>Id:{{id}}</li>
-                            <li>Belongs to:{{belongsToShelter}}</li>
-                            <li>Species:{{species}}</li>
-                            <li>Breed:{{breed}}</li>
+                            <li>Name:{{pet.name}}</li>
+                            <li>Id:{{[pet.id]}}</li>
+                            <li>Belongs to:{{pet.belongsToShelter}}</li>
+                            <li>Species:{{pet.species}}</li>
+                            <li>Breed:{{pet.breed}}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="aInfo">
                         <ul>
-                            <li>Sex:{{sex}}</li>
-                            <li>Color:{{color}}</li>
-                            <li>Status:{{status}}</li>
-                            <li>Age:{{age}}</li>
+                            <li>Sex:{{pet.sex}}</li>
+                            <li>Color:{{pet.color}}</li>
+                            <li>Status:{{pet.status}}</li>
+                            <li>Age:{{pet.age}}</li>
                         </ul>
                     </div>
                 </div>
@@ -37,8 +37,9 @@
                 <div class="col-sm-12">
                     <div class="aInfo">
                         <p>
-                            Description:{{description}}
-                        </p>
+                            Description:{{pet.description}}
+                            
+                        </p>                        
                     </div>
                 </div>
             </div>
