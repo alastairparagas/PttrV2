@@ -3,11 +3,12 @@
     angular.module('pttr')
         .filter("PetFinderApiEmptyFields", function() {
             return function(items) {
-                var filtered = [];
-                for (var i = 0; i < items.length; i++) {
-                    var item = items[i];
-                    if (item.pictures.length > 0) {
-                        if (item.pictures.largePicture !== undefined || item.breed !== undefined || item.description !== undefined) {
+                var filtered = items;
+                if (items != undefined) {   
+                    filtered = [];
+                    for (var i = 0; i < items.length; i++) {
+                        var item = items[i];
+                        if (item.pictures.largePicture != undefined &&  item.pictures.largePicture != "" && item.breed !== undefined && item.description !== undefined && item.id !== undefined && item.belongsToShelter !== undefined && item.sex !== undefined && item.status !== undefined) {
                             filtered.push(item);
                         }
                     }
@@ -18,10 +19,11 @@
         .filter("RescueGrouplimitdesc", function() {
             return function(items) {
                 if (items.search(":") !== -1) {
-                    var output = items.substr(0, items.lastIndexOf("\n"));
-                    var spliter = output.split(" ");
+                    var output = items.substr(0, items.lastIndexOf("\n")),
+                    spliter = output.split(" "),
+                    a;
                     spliter[0] = '<p>' + spliter[0];
-                    for (var a = 1; a < spliter.length; a++) {
+                    for ( a = 1; a < spliter.length; a++) {
                         if (spliter[a].search(":") !== -1) {
                             spliter[a] = '</p><p>' + spliter[a];
                         }

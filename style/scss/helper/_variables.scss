@@ -1,5 +1,6 @@
 $base-color-g:#48CFAD;
 $base-color-gray: #ecf0f1;
+
 %button {
     background-color: rgba(#48CFAD, 0.8);
     border-color: rgba(#48CFAD, 0.8);
@@ -47,7 +48,30 @@ $base-color-gray: #ecf0f1;
     display: flex;
     justify-content: center;
 }
-%gearmenu {
+%dashmenu {
+    .menu-button {
+        position: fixed;
+        bottom: 0;
+        z-index: 1000;
+        margin: 1em;
+        padding: 0;
+        border: none;
+        font-size: 1.5em;
+        color: #373a47;
+        background: transparent;
+        span {
+            display: none;
+        }
+        &:hover {
+            opacity: 0.6;
+        }
+        i {
+            position: absolute;
+            left: -15px;
+            bottom: -10px;
+            font-size: 30px;
+        }
+    }
     .menu-wrap {
         position: fixed;
         z-index: 900;
@@ -87,6 +111,7 @@ $base-color-gray: #ecf0f1;
                     display: block;
                     margin: 0.25em 0;
                     color: #7d8194;
+                    cursor: pointer;
                     padding: 0.5em 1.5em;
                     &:hover, &:focus {
                         color: #64697d;
@@ -110,32 +135,6 @@ $base-color-gray: #ecf0f1;
             }
         }
     }
-}
-%dashmenu {
-    .menu-button {
-        position: fixed;
-        bottom: 0;
-        z-index: 1000;
-        margin: 1em;
-        padding: 0;
-        border: none;
-        font-size: 1.5em;
-        color: #373a47;
-        background: transparent;
-        span {
-            display: none;
-        }
-        &:hover {
-            opacity: 0.6;
-        }
-        i {
-            position: absolute;
-            left: -15px;
-            bottom: -10px;
-            font-size: 30px;
-        }
-    }
-    @extend %gearmenu;
     .show-menu {
         .menu-wrap {
             width: 250px;

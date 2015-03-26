@@ -37,8 +37,8 @@
             <form class="crit navbar-left navbar-form">
                 <div class="form-group">
                     <label for="animaltype">Animal Type:</label>
-                    <select name="animal" id="animaltype" ng-model="animalTypeSelection" ng-options="animalT as animalT.type for animalT in uniqueList" >
-                        <option value="" >Select Type</option>
+                    <select name="animal" id="animaltype" ng-model="animalTypeSelection" ng-options="animalT as animalT.type for animalT in uniqueList">
+                        <option value="">Select Type</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -48,7 +48,7 @@
                     </select>
                 </div>
             </form>
-           <div class="col-sm-3 animal" ng-repeat="pet in animals | animalytype:animalTypeSelection.type:breedListSelection | limitTo: 50" back-img="{{pet.pictures.largePicture}}" ng-mouseenter="enterImage = true" ng-mouseleave="enterImage = false">
+            <div class="col-sm-3 animal" ng-repeat="pet in animals | emptyFields | animalytype:animalTypeSelection.type:breedListSelection | limitTo: 50" back-img="{{pet.pictures.largePicture}}" ng-mouseenter="enterImage = true" ng-mouseleave="enterImage = false">
                 <div class="info_container animated" ng-class="{ fadeIn:enterImage, fadeOut:!enterImage }">
                     <div class="overlay" ng-click="populate(pet)" data-toggle="modal" data-target="#animalInfo"></div>
                     <div class="icon_area animated" ng-class="{ fadeInUp:enterImage , fadeOutDown:!enterImage }">
@@ -134,7 +134,7 @@
         <div class="modal fade" id="donate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <form  name="donate" novalidate>
+                    <form name="donate" novalidate>
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                             </button>
@@ -175,4 +175,4 @@
         <!-- end of donation button -->
     </div>
 </div>
-</div>
+<div ng-include="'app/main/partials/include/_footer.html'"></div>
