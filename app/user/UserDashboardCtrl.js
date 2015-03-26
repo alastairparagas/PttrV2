@@ -28,6 +28,9 @@
                 $scope.animal = animalObject;
             };
 
+            $scope.passData = function(data){
+               AnimalService.setData(data);
+            }
         }]);
     
 }(window));
