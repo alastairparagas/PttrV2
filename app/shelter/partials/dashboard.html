@@ -47,6 +47,7 @@
                                                 </li>
                                                 <li>
                                                     Shelter ID: {{animal.belongsToShelter}}
+                                                    {{getShareData}}
                                                 </li>
                                             </ul>
                                         </div>
@@ -54,8 +55,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a type="button" class="mbtn btn btn-default" data-dismiss="modal">Close</a>
-                                <a type="button" class="mbtn btn btn-primary">{{animal.name + "'s "}} Profile</a>
+                                <a type="button" class="mbtn btn btn-default" data-dismiss="modal" >Close</a>
+                                <a type="button" class="mbtn btn btn-primary" ng-click="setShareData(animal.name)">{{animal.name + "'s "}} Profile</a>
                             </div>
                         </div>
                     </div>

@@ -194,6 +194,9 @@
             return uniqueList;
         };
 
+        // sharing data between controllers
+        var Share = this;
+        Share.AnimalInfo = "default";
     }]);
 
 }(window));

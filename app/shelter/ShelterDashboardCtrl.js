@@ -26,8 +26,9 @@
                 $scope.showmenu = !$scope.showmenu;
             };
             $scope.populate = function (animalObject) {
-                $scope.animal = animalObject;
+                $scope.animal = animalObject;                
             };
+
             $scope.enterImage = false;
             $scope.sideClicked = false;
             $scope.tabs = ShelterService.getTabs;            
@@ -45,6 +46,14 @@
             $scope.isActiveTab = function(taburl) {
                 return taburl === $scope.currentTab;
             };
+
+            // sharing data between controllers
+            $scope.getShareData = AnimalService.AnimalInfo;
+            $scope.setShareData = function(data){
+                AnimalService.AnimalInfo = data;
+                console.log(AnimalService.AnimalInfo)
+            }
+            
             
         }]);
 }(window));
