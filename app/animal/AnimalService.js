@@ -5,7 +5,7 @@
         google = window.google,
         $ = window.$;
 
-    angular.module('pttr.animal').service('AnimalService', ['$http', '$q', function ($http, $q) {
+    angular.module('pttr.animal').service('AnimalService', ['$http', '$q',function ($http, $q) {
 
         var cityName,
             animalList,
@@ -45,7 +45,7 @@
             if (cityName === undefined) {
                 cityName = "Miami,FL";
             }
-            $http.get("http://localhost/pttrv2-backend/animals?limit=100&city=" + cityName)
+            $http.get("http://pttrapp.com/api/v1/animals?limit=100&city=" + cityName)
                 .success(function (data) {
                     if (data.status === "ok") {
                         animalList = data.results;
@@ -65,7 +65,7 @@
         */
         this.getAnimal = function (animalId) {
             var defer = $q.defer();
-            $http.get("http://localhost/pttrv2-backend/animals?city=Miami,FL")
+            $http.get("http://pttrapp.com/api/v1/animals?city=Miami,FL")
                 .success(function (data) {
                     if (data.status === "ok") {
                         defer.resolve(data.results);
@@ -191,10 +191,16 @@
                     }
                 }
             }
-            window.console.log(uniqueList);
             return uniqueList;
         };
-
+        // Shared Data service
+        this.data ={};
+        this.setData = function(input){
+            this.data = input;
+        }
+        this.getData = function(){
+            return this.data;
+        }
     }]);
 
 }(window));

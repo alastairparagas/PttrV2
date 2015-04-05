@@ -1,20 +1,10 @@
 (function(window) {
     var angular = window.angular;
     angular.module("pttr.shelter")
-        .controller('ShelterEditCtrl', ['$scope', function($scope) {
-            $scope.tabs = [{
-                tab: 'MainDash',
-                url: 'app/shelter/partials/dash_main.html'
-            }, {
-                tab: 'Animal List',
-                url: 'app/shelter/partials/dash_animalList.html'
-            }, {
-                tab: 'Donations',
-                url: 'app/shelter/partials/dash_donation.html'
-            }, {
-                tab: 'Liked Animals',
-                url: 'app/shelter/partials/dash_Liked.html'
-            }];
+        .controller('ShelterEditCtrl', ['$scope', 'ShelterService', function($scope, ShelterService) {
+            $scope.showmenu = false;
+            $scope.tabs = ShelterService.getTabs;
+            $scope.alternativeTabs = ShelterService.getAlternateTabs;
             // Makes the current tab stick to the page which the user selected on the view
             if (localStorage.getItem("changeview") === "true") {
                 $scope.currentTab = localStorage.getItem("sheltertab");
@@ -28,6 +18,9 @@
             };
             $scope.isActiveTab = function(taburl) {
                 return taburl === $scope.currentTab;
+            };
+             $scope.activate = function () {
+                $scope.showmenu = !$scope.showmenu;
             };
         }])
 }(window));

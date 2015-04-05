@@ -2,7 +2,7 @@
     'use strict';
 
     var angular = window.angular,
-        app = angular.module('pttr', ['ui.router','ngSanitize', 'ui.bootstrap', 'firebase', 'pttr.firebase', 'pttr.auth', 'pttr.animal', 'pttr.user', 'pttr.shelter']);
+        app = angular.module('pttr', ['ui.router','ngSanitize', 'ui.bootstrap', 'firebase', 'pttr.firebase', 'pttr.auth', 'pttr.animal', 'pttr.user', 'pttr.shelter', 'ngStorage']);
 
     app.run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
 
@@ -35,12 +35,12 @@
             })
             .state('app.user.login', {
                 url: '/login',
-                controller: 'UserLoginCtrl',
+                // controller: 'UserLoginCtrl',
                 templateUrl: 'app/auth/partials/userLogin.html'
             })
             .state('app.user.register', {
                 url: '/register',
-                controller: 'UserRegisterCtrl',
+                // controller: 'UserRegisterCtrl',
                 templateUrl: 'app/auth/partials/userRegister.html'
             })
             .state('app.user.dashboard', {
@@ -72,12 +72,12 @@
             })
             .state('app.shelter.login', {
                 url: '/login',
-                controller: 'ShelterLoginCtrl',
+                // controller: 'ShelterLoginCtrl',
                 templateUrl: 'app/auth/partials/shelterLogin.html'
             })
             .state('app.shelter.register', {
                 url: '/register',
-                controller: 'ShelterRegisterCtrl',
+                // controller: 'ShelterRegisterCtrl',
                 templateUrl: 'app/auth/partials/shelterRegister.html'
             })
             .state('app.shelter.dashboard', {

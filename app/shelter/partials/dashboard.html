@@ -2,41 +2,10 @@
     <!-- this is the dashboard header bar -->
     <div class="container-fluid">
         <div class="row nvcont">
-            <!-- this is the menu which appears when the user click on the gear box -->
-            <!-- <ul ng-cloak class="nav nav-tabs nav-stacked animated" ng-class="{slide:sideClicked, slideInLeft:sideClicked,slideInRight: !sideClicked}">
-                <li class="pill_header"><a>Home</a>
-                </li>
-                <li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}">
-                    <a ng-click="onClickTab(tab)">{{tab.tab}} <span></span></a>
-                </li>
-                <div class="sidebumb" ng-click="sideClicked = !sideClicked">
-                    <i class=" menuIcon fa fa-bars"></i>
-                </div>
-            </ul> -->
+            <!-- this is the menu which appears when the user click on the gear box -->         
             <div class="col-sm-12" ng-class="{'show-menu': showmenu }">
                 <!-- start menu -->
-                <div class="menu-wrap">
-                    <nav class="menu">
-                        <div class="profile"><img src="image/shelter.jpg" alt=""/><span>Animal Shelter</span>
-                        </div>
-                        <div class="link-list">
-                            <a ng-repeat="tab in tabs" ng-click="onClickTab(tab)"><span>{{tab.tab}}</span></a>
-                        </div>
-                        <div class="icon-list">
-                            <!-- takes the user to their dash board -->
-                            <a ui-sref="app.shelter.view"><i class="fa fa-fw fa-home"></i></a>
-                            <!-- Takes the user to their own view -->
-                            <a ui-sref="app.shelter.edit"><i class="fa fa-fw fa-question-circle"></i></a>
-                            <!-- log out  -->
-                            <a><i class="fa fa-fw fa-power-off"></i></a>
-                        </div>
-                    </nav>
-                </div>
-                <!-- end menu -->
-                <!-- button to activate the menu -->
-                <!-- start btn -->
-                <button ng-click="activate()" class="menu-button" id="open-button"><i class="fa fa-fw fa-cog"></i><span>Open Menu</span>
-                </button>
+                <div ng-include="'app/shelter/partials/include/_menuShelter.html'"></div>
                 <!-- end btn -->
                 <!-- This outputs all of the partial pages -->
                 <div ng-include="currentTab" ng-cloak></div>
@@ -76,17 +45,17 @@
                                                 <li>
                                                     Color: {{animal.color}}
                                                 </li>
-                                                <li>
+                                                <li ng-click="test()">
                                                     Shelter ID: {{animal.belongsToShelter}}
-                                                </li>
+                                                </li >
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a type="button" class="mbtn btn btn-default" data-dismiss="modal">Close</a>
-                                <a type="button" class="mbtn btn btn-primary">{{animal.name + "'s "}} Profile</a>
+                                <a type="button" class="mbtn btn btn-default" data-dismiss="modal" >Close</a>
+                                <a data-dismiss="modal"  type="button" class="mbtn btn btn-primary"  ui-sref="app.animal.view" ng-click="passData(animal)" >{{animal.name + "'s "}} Profile</a>
                             </div>
                         </div>
                     </div>
@@ -117,3 +86,4 @@
         </div>
     </div>
 </div>
+<div ng-include="'app/main/partials/include/_footer.html'"></div>

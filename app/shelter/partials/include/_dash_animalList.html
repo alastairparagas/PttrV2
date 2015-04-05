@@ -13,7 +13,7 @@
                     </select>
                 </div>
             </form>
-    <div class="col-sm-3 animal" ng-repeat="pet in animals | animalytype:animalTypeSelection.type:breedListSelection | limitTo: 50" back-img="{{pet.pictures.largePicture}}" ng-mouseenter="enterImage = true" ng-mouseleave="enterImage = false">
+    <div class="col-sm-3 animal" ng-repeat="pet in animals |  emptyFields  |animalytype:animalTypeSelection.type:breedListSelection | limitTo: 50" back-img="{{pet.pictures.largePicture}}" ng-mouseenter="enterImage = true" ng-mouseleave="enterImage = false">
         <div class="info_container animated" ng-class="{ fadeIn:enterImage, fadeOut:!enterImage }">
             <div class="overlay" ng-click="populate(pet)" data-toggle="modal" data-target="#animalInfo"></div>
             <div class="icon_area animated" ng-class="{ fadeInUp:enterImage , fadeOutDown:!enterImage }">
@@ -25,7 +25,7 @@
                         <button class="btn btn-default">Update</button>
                     </li>
                     <li>
-                        <button class="btn btn-default" ng-click="populate(pet)" data-toggle="modal" data-target="#removeAnimal">Remove</button>
+                        <button class="btn btn-default" ng-click="populate(pet);injectToAnimalService(pet)" data-toggle="modal" data-target="#removeAnimal">Remove</button>
                     </li>
                 </ul>
             </div>

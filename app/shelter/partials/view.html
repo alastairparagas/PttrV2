@@ -1,65 +1,119 @@
 <div class="animated fadeIn" id="shelterPage">
-	<div class="container-fluid shelter-header">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="profile-pic-cont">
-					<img src="image/shelter.jpg" alt="" class="profile-pic img-responsive">
-					<h3>Tri County Animal Rescue</h3>
-					<button type="button" class="btn btn-default btn-donate">Donate</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-		<div class="row sec-padding">
-			<div class="container">
-				<div class="col-md-8">
-					<div class="left-section">
-						<div class="title">
-							<h4 class="box-header">Pets Available</h4>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="right-section">
-						<div class="title">
-							<h4 class="box-header">Contact Info</h4>
-						</div>
-						<div class="content">
-							<p>
-								16101 W Dixie Hwy<br>
-								North Miami Beach, FL 33160<br>
-								Phone: (305) 696-0800
-							</p>
-							<p>shelter@animalrescue.com</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="right-section">
-						<div class="title">
-							<h4 class="box-header">Services and Hours of Operations</h4>
-						</div>
-						<div class="content">
-							<p>Sunday and Monday: Closed <br>Tuesday through Friday: 9:00am – 11:30am and 1:00pm – 3:30pm <br>Saturday: 9:00am – 3:30pm</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="right-section">
-						<div class="title">
-							<h4 class="box-header">Additonal Information</h4>
-						</div>
-						<div class="content">
-							<p>For spay/neuter appointments (or to change or cancel a surgery appointment), please call 305-749-1827 during hours of operation listed above.</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
+    <div class="container-fluid" ng-class="{'show-menu': showmenu }">
+        <div ng-include="'app/shelter/partials/include/_menuShelter.html'"></div>
+        <div class="container-fluid shelter-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile-pic-cont">
+                        <img src="image/shelter.jpg" alt="" class="profile-pic img-responsive">
+                        <h3>Tri County Animal Rescue</h3>
+                        <button type="button" class="btn btn-default btn-donate">Donate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row sec-padding">
+                <div class="col-md-8">
+                    <div class="left-section">
+                        <div class="title">
+                            <h4 class="box-header">Pets Available</h4>
+                        </div>
+                        <div class="col-sm-3 animal" ng-repeat="pet in animals | emptyFields | limitTo: 50" back-img="{{pet.pictures.largePicture}}" >
+                            <div class="info_container">
+                                <div class="overlay" ng-click="populate(pet)" data-toggle="modal" data-target="#animalInfo"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="right-section">
+                        <div class="title">
+                            <h4 class="box-header">Contact Info</h4>
+                        </div>
+                        <div class="content">
+                            <p>
+                                16101 W Dixie Hwy
+                                <br> North Miami Beach, FL 33160
+                                <br> Phone: (305) 696-0800
+                            </p>
+                            <p>shelter@animalrescue.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="right-section">
+                        <div class="title">
+                            <h4 class="box-header">Services and Hours of Operations</h4>
+                        </div>
+                        <div class="content">
+                            <p>Sunday and Monday: Closed
+                                <br>Tuesday through Friday: 9:00am – 11:30am and 1:00pm – 3:30pm
+                                <br>Saturday: 9:00am – 3:30pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="right-section">
+                        <div class="title">
+                            <h4 class="box-header">Additonal Information</h4>
+                        </div>
+                        <div class="content">
+                            <p>For spay/neuter appointments (or to change or cancel a surgery appointment), please call 305-749-1827 during hours of operation listed above.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="modal fade" id="animalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3 class="modal-title" id="myModalLabel">{{animal.name}}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img class="img-responsive img-rounded" ng-src="{{animal.pictures.largePicture}}" alt="img25" />
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="well well-lg">
+                                    <ul>
+                                        <li>
+                                            Animal Id: {{animal.id}}
+                                        </li>
+                                        <li>
+                                            Status: {{animal.status}}
+                                        </li>
+                                        <li>
+                                            Species: {{animal.species}}
+                                        </li>
+                                        <li>
+                                            Primary Breed: {{animal.breed}}
+                                        </li>
+                                        <li>
+                                            Sex: {{animal.sex}}
+                                        </li>
+                                        <li>
+                                            Color: {{animal.color}}
+                                        </li>
+                                        <li>
+                                            Shelter Id: {{animal.belongsToShelter}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+                        <a data-dismiss="modal" type="button" class="btn btn-primary" ui-sref="app.animal.view" ng-click="passData(animal)" >{{animal.name + "'s "}} Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div ng-include="'app/main/partials/include/_footer.html'"></div>

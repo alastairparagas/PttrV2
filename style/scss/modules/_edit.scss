@@ -1,11 +1,10 @@
 #editShelter {
-    @extend %gearmenu;
+   
     .profileSettings {
         h1 {
             text-align: center;
         }
         .txt_blk {
-
             p, li {
                 padding-left: 7%;
                 padding-right: 7%;
@@ -35,10 +34,11 @@
             margin-bottom: 50px;
         }
     }
+     @extend %dashmenu;
 }
 
 #editUser {
-    @extend %gearmenu;
+    @extend %dashmenu;
     .profileSettings {
         h1 {
             text-align: center;
