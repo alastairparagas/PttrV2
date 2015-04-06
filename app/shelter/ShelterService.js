@@ -1,8 +1,7 @@
-(function(window) {
+(function (window) {
     'use strict';
 
     var angular = window.angular;
-
     angular.module('pttr.shelter').service('ShelterService',  [ 'AnimalService', function(AnimalService) {
         this.getTabs = [{
             tab: 'MainDash',
@@ -32,6 +31,10 @@
         	}
         ];
         
+        //  this.transferData = function(data){
+        //  AnimalService.StoreData(data);
+        //  console.log(data + " Shelter Service");
+        // }
     }]);
 
 }(window));
