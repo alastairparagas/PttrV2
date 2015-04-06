@@ -9,7 +9,7 @@
             if (localStorage.getItem("changeview") === "true") {
                 $scope.currentTab = localStorage.getItem("sheltertab");
             } else {
-                $scope.currentTab = 'app/shelter/partials/dash_animalList.html';
+                $scope.currentTab = 'app/shelter/partials/include/_dash_animalList.html';
             }
             $scope.onClickTab = function(tab) {
                 $scope.currentTab = tab.url;
