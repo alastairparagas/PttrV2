@@ -2,8 +2,7 @@
     'use strict';
 
     var angular = window.angular;
-
-    angular.module('pttr.shelter').service('ShelterService',  [ 'AnimalService', function (AnimalService) {
+    angular.module('pttr.shelter').service('ShelterService',  [ 'AnimalService', function(AnimalService) {
         this.getTabs = [{
             tab: 'MainDash',
             url: 'app/shelter/partials/include/_dash_main.html'
@@ -18,18 +17,18 @@
             url: 'app/shelter/partials/include/_dash_Liked.html'
         }];
         this.getAlternateTabs = [
-            {
-                tab: "Messages",
-                url: ""
-            },
-            {
-                tab: "Email",
-                url: ""
-            },
-            {
-                tab: "Browse Shelters",
-                url: ""
-            }
+        	{
+        		tab: "Messages",
+        		url: ""
+        	},
+        	{
+        		tab: "Email",
+        		url: ""
+        	},
+        	{
+        		tab: "Browse Shelters",
+        		url: ""
+        	}
         ];
         
         //  this.transferData = function(data){
