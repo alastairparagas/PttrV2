@@ -2,10 +2,19 @@
     'use strict';
 
     var angular = window.angular,
-        app = angular.module('pttr', ['ui.router','ngSanitize', 'ui.bootstrap', 'firebase', 'pttr.firebase', 'pttr.auth', 'pttr.animal', 'pttr.user', 'pttr.shelter', 'ngStorage']);
+        app = angular.module('pttr', ['ui.router',
+                                      'ngSanitize',
+                                      'ui.bootstrap',
+                                      'firebase',
+                                      'pttr.firebase',
+                                      'pttr.auth',
+                                      'pttr.animal',
+                                      'pttr.user',
+                                      'pttr.shelter',
+                                      'ngStorage']);
 
-    app.run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
-
+    app.run(['AuthService', function (AuthService) {
+        AuthService.initialize();
     }]);
 
     app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -28,40 +37,40 @@
                 templateUrl: 'app/main/partials/contact.html'
             })
 
-            .state('app.user', {
+            .state('app.individual', {
                 url: '/user',
                 abstract: true,
                 template: '<ui-view/>'
             })
-            .state('app.user.login', {
+            .state('app.individual.login', {
                 url: '/login',
                 // controller: 'UserLoginCtrl',
                 templateUrl: 'app/auth/partials/userLogin.html'
             })
-            .state('app.user.register', {
+            .state('app.individual.register', {
                 url: '/register',
                 // controller: 'UserRegisterCtrl',
                 templateUrl: 'app/auth/partials/userRegister.html'
             })
-            .state('app.user.dashboard', {
+            .state('app.individual.dashboard', {
                 url: '/dashboard',
                 controller: 'UserDashboardCtrl',
                 templateUrl: 'app/user/partials/dashboard.html',
                 data: {
-                    authType: 'user'
+                    authType: 'individual'
                 }
             })
-            .state('app.user.view', {
+            .state('app.individual.view', {
                 url: '/:id',
                 controller: 'UserViewCtrl',
                 templateUrl: 'app/user/partials/view.html'
             })
-            .state('app.user.edit', {
+            .state('app.individual.edit', {
                 url: '/:id/edit',
                 controller: 'UserEditCtrl',
                 templateUrl: 'app/user/partials/edit.html',
                 data: {
-                    authType: 'user'
+                    authType: 'individual'
                 }
             })
 
