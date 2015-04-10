@@ -20,15 +20,22 @@
                 latlong = new google.maps.LatLng(lat, long);
 
             geocoder.geocode({'latLng': latlong}, function (results, status) {
+                var state, city;
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
                         $.each(results, function (index, address_component) {
-                            if (address_component.types[0] === "locality") {
-                                cityName = address_component.address_components[0].long_name;
+                            if (address_component.types.indexOf("locality") > -1) {
+                                city = address_component.long_name;
+                            }
+                            if (address_component.types.indexOf("administrative_area_level_1") > -1) {
+                                state = address_component.short_name;
                             }
                         });
                     }
                 }
+                if (state != null && city != null) {
+                    city = state + " " + city;
+                }   
             });
         }
 
@@ -194,12 +201,12 @@
             return uniqueList;
         };
         // Shared Data service
-        this.data ={};
+        var data ={};
         this.setData = function(input){
-            this.data = input;
+            data = input;
         }
         this.getData = function(){
-            return this.data;
+            return data;
         }
     }]);
 

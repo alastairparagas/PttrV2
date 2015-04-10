@@ -30,11 +30,6 @@
         		url: ""
         	}
         ];
-        
-        //  this.transferData = function(data){
-        //  AnimalService.StoreData(data);
-        //  console.log(data + " Shelter Service");
-        // }
     }]);
 
 }(window));

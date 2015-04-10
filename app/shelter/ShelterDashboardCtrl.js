@@ -47,7 +47,7 @@
                 return taburl === $scope.currentTab;
             };
 
-            // sharing data between controllers
+            // sharing data between controllers through service
             $scope.passData = function(data){
                AnimalService.setData(data);
             }
