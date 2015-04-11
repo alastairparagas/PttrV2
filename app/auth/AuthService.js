@@ -53,38 +53,15 @@
             @description Is AuthService already initialized?
             @private
         **/
-            initialized = false;
-        
+            initialized = false,
         /**
+            @type {Object}
             @memberof AuthService
-            @description Bootstraps our Authentication Service.
-                Self-executes when the Service is instantiated for the
-                first time.
+            @description References 'this' in context of AuthService
             @private
-        */
-        function bootstrapAuth() {
-            user = {
-                id: null,
-                email: null,
-                name: null,
-                type: null
-            };
-            authorizer = $firebaseAuth(FirebaseRefService);
-            function authGuard(event, toState, toParams, fromState, fromParams) {
-                if (toState.data.authType === "individual" &&
-                        AuthService.getUser().type !== "individuals") {
-                    event.preventDefault();
-                    $state.go('app.individual.login');
-                } else if (toState.data.authType === "shelter" &&
-                            AuthService.getUser().type !== "shelters") {
-                    event.preventDefault();
-                    $state.go('app.shelter.login');
-                }
-            }
-            $rootScope.$on("$stateChangeStart", authGuard);
-            initialized = true;
-        }
-        bootstrapAuth();
+        **/
+            self = this;
+        
         
         /**
             @memberof AuthService
@@ -99,7 +76,7 @@
                 }
             }
         }
-
+        
         /**
             @memberof AuthService
             @param {Object} userInfo Object representation of the user that abides
@@ -111,7 +88,14 @@
             @private
         */
         function bootstrapUser(userInfo) {
-            var userProperty;
+            var userProperty,
+                session;
+            if (userInfo === null) {
+                return false;
+            }
+            if (typeof userInfo !== "object") {
+                return false;
+            }
             for (userProperty in user) {
                 if (user.hasOwnProperty(userProperty)) {
                     if (userInfo.hasOwnProperty(userProperty)
@@ -125,8 +109,50 @@
                     }
                 }
             }
+            session = window.JSON.stringify(user);
+            window.localStorage.setItem('session', session);
             return true;
         }
+        
+        /**
+            @memberof AuthService
+            @description Bootstraps our Authentication Service.
+                Initializes our Firebase Auth and if the user
+                was already authenticated by Firebase, bootstraps
+                Auth to bring back such session.
+            @private
+        */
+        function bootstrapAuth() {
+            var session;
+            user = {
+                id: null,
+                email: null,
+                name: null,
+                type: null
+            };
+            
+            authorizer = $firebaseAuth(FirebaseRefService);
+            if (authorizer.$getAuth() !== null) {
+                session = window.localStorage.getItem('session');
+                session = window.JSON.parse(session);
+                bootstrapUser(session);
+            }
+            
+            function authGuard(event, toState, toParams, fromState, fromParams) {
+                if (toState.data.authType === "individual" &&
+                        self.getUser().type !== "individuals") {
+                    event.preventDefault();
+                    $state.go('app.individual.login');
+                } else if (toState.data.authType === "shelter" &&
+                            self.getUser().type !== "shelters") {
+                    event.preventDefault();
+                    $state.go('app.shelter.login');
+                }
+            }
+            $rootScope.$on("$stateChangeStart", authGuard);
+            initialized = true;
+        }
+        bootstrapAuth();
         
         /**
             @memberof AuthService
