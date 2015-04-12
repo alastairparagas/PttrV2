@@ -130,6 +130,7 @@
                 name: null,
                 type: null
             };
+            Object.preventExtensions(user);
             
             authorizer = $firebaseAuth(FirebaseRefService);
             if (authorizer.$getAuth() !== null) {
