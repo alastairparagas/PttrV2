@@ -19,8 +19,8 @@
                              $state,
                              $firebaseAuth,
                              $firebaseObject,
-                             FirebaseRefService,
-                             $q) {
+                             $q,
+                             FirebaseRefService) {
 
         /**
             @type {Object}
