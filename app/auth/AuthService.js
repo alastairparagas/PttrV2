@@ -333,7 +333,7 @@
                 user.
         */
         this.getUser = function () {
-            return user;
+            return angular.copy(user);
         };
 
         /**
