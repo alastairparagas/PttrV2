@@ -5,7 +5,7 @@
         google = window.google,
         $ = window.$;
 
-    angular.module('pttr.animal').service('AnimalService', ['$http', '$q',function ($http, $q) {
+    angular.module('pttr.animal').service('AnimalService', ['$http', '$q', '$rootScope', function ($http, $q,$rootScope) {
 
         var cityName,
             animalList,
@@ -200,6 +200,7 @@
             }
             return uniqueList;
         };
+      
         // Shared Data service
         var data ={};
         this.setData = function(input){

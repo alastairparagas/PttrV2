@@ -3,11 +3,10 @@
     var angular = window.angular;
     angular.module('pttr.user')
         .controller('ShelterViewCtrl', ['$scope', 'ShelterService', 'AnimalService', function($scope, ShelterService, AnimalService) {
+           $scope.plane_loading=true;
             AnimalService.getAnimals().then(function (animalList) {
                 $scope.animals = animalList;
-                $scope.speciesList = AnimalService.getSpeciesList();
-                $scope.breedList = AnimalService.getBreedList();
-                $scope.uniqueList = AnimalService.getAnimalsUnique();
+                $scope.plane_loading=false;
             });
             $scope.enterImage = false;
             $scope.showmenu = false;
@@ -36,5 +35,5 @@
             $scope.passData = function(data){
                AnimalService.setData(data);
             };
-        }])
+        }])        
 }(window));

@@ -2,7 +2,7 @@
     'use strict';
 
     var angular = window.angular,
-        app = angular.module('pttr', ['ui.router','ngSanitize', 'ui.bootstrap', 'firebase', 'pttr.firebase', 'pttr.auth', 'pttr.animal', 'pttr.user', 'pttr.shelter', 'ngStorage']);
+        app = angular.module('pttr', ['ui.router','ngSanitize', 'ui.bootstrap', 'firebase', 'pttr.firebase', 'pttr.auth', 'pttr.animal', 'pttr.user', 'pttr.shelter', 'ngStorage','angular-spinkit']);
 
     app.run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
 

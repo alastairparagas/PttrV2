@@ -5,8 +5,10 @@
         .controller('ShelterDashboardCtrl', ['$scope', 'ShelterService', 'AnimalService', '$state' ,'SharedData' ,function ($scope, ShelterService, AnimalService, $state,SharedData) {
             $scope.showmenu = false;
             $scope.showCounts = false;
+            $scope.cubes_loading = true;
             AnimalService.getAnimals().then(function (animalList) {
                 $scope.animals = animalList;
+                $scope.cubes_loading = false;
                 $scope.speciesList = AnimalService.getSpeciesList();
                 $scope.breedList = AnimalService.getBreedList();
                 $scope.uniqueList = AnimalService.getAnimalsUnique();
